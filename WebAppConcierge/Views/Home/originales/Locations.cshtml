@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Locations";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .destination-card {
+        transition: transform 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .destination-card:hover {
+            transform: scale(1.03);
+        }
+
+    .destination-img {
+        height: 220px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-content {
+        margin-top: 10px;
+    }
+
+        .card-content ul {
+            padding-left: 20px;
+        }
+
+        .card-content li {
+            margin-bottom: 8px;
+        }
+</style>
+
+<section class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-warning">¿Dónde están disponibles los servicios?</h2>
+        <p class="fs-5">Conozca los detalles de cada uno de nuestros destinos destacados.</p>
+    </div>
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <select id="regionFilter" class="form-select">
+                <option value="all">Mostrar todos</option>
+                <option value="america-central">América Central</option>
+                <option value="caribe">Caribe</option>
+                <option value="usa">Estados Unidos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row g-4" id="destinosContainer">
+        @{
+            var destinos = new[] {
+                new { Region="america-central", Titulo="Costa Rica", Imagen="/images/locations/costa-rica.jpg",
+                Resumen="Naturaleza exuberante y parques nacionales.",
+                Contenido=@"Con sus bosques y playas, Costa Rica alberga abundantes bellezas naturales. El país cuenta con más de 25 Parques Nacionales y más de 20 zonas protegidas, lo que lo convierte en el lugar perfecto para los amantes de la naturaleza y los aventureros al aire libre.<br/><br/>With its forests and beaches, Costa Rica is home to abundant natural beauty. The country has more than 25 National Parks and over 20 protected areas." },
+
+                new { Region="caribe", Titulo="Riviera Maya", Imagen="/images/locations/riviera-maya.jpg",
+                Resumen="Playas paradisíacas y cultura maya.",
+                Contenido=@"Sus hermosas playas, el rico legado del Mundo Maya, su exótica naturaleza, sus hoteles y resorts de clase mundial, la mejor gastronomía y una vida nocturna súper divertida hacen del Caribe Mexicano el lugar perfecto para tus próximas vacaciones." },
+
+                new { Region="caribe", Titulo="Bahamas", Imagen="/images/locations/bahamas.jpg",
+                Resumen="Playas de ensueño y aguas cristalinas.",
+                Contenido=@"Las Bahamas son un paraíso tropical con playas de ensueño, aguas cristalinas y un clima cálido durante todo el año. Es el lugar perfecto para relajarse, disfrutar de actividades acuáticas y explorar la cultura local." },
+
+                new { Region="caribe", Titulo="Turks and Caicos", Imagen="/images/locations/turks.jpg",
+                Resumen="Aguas turquesas y vida marina.",
+                Contenido=@"En este territorio británico de ultramar, que celebridades pusieron en el mapa como su lugar de vacaciones, las aguas turquesas, la vida submarina y las conchas son las protagonistas. También esperan un delfín que es un tesoro nacional y una de las mejores playas del mundo." },
+
+                new { Region="usa", Titulo="Miami, USA", Imagen="/images/locations/miami.jpg",
+                Resumen="Vibrante, cosmopolita y llena de energía.",
+                Contenido=@"Miami es una ciudad vibrante donde la cultura latina se mezcla con la modernidad estadounidense. Ofrece playas icónicas como South Beach, arte urbano en Wynwood, vida nocturna de primer nivel y una escena gastronómica en constante evolución. Ideal para quienes buscan lujo, entretenimiento y un ambiente cosmopolita junto al mar." }
+                };
+        }
+
+        @foreach (var destino in destinos)
+        {
+            <div class="col-md-6 col-lg-4 destino-item" data-region="@destino.Region">
+                <div class="card destination-card shadow h-100">
+                    <img src="@destino.Imagen" class="destination-img" alt="@destino.Titulo">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@destino.Titulo</h5>
+                        <p class="card-text">@destino.Resumen</p>
+                        <div class="card-content">
+                            @Html.Raw(destino.Contenido)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+    document.getElementById('regionFilter').addEventListener('change', function () {
+        const selected = this.value;
+        const items = document.querySelectorAll('.destino-item');
+        items.forEach(el => {
+            el.style.display = (selected === 'all' || el.getAttribute('data-region') === selected) ? 'block' : 'none';
+        });
+    });
+</script>

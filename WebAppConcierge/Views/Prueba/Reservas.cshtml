@@ -1,0 +1,41 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@{
+    ViewData["Title"] = L["Reservations_Title"];
+}
+
+<section class="text-white text-center py-5" style="background: linear-gradient(135deg, #00c9ff, #92fe9d);">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">@L["Reservations_Hero_Title"]</h1>
+        <p class="lead">@L["Reservations_Hero_Lead"]</p>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row g-4 justify-content-center">
+
+        <!-- Ver Reservas -->
+        <div class="col-md-5">
+            <div class="card h-100 text-center shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body">
+                    <i class="bi bi-calendar-check-fill text-info fs-1 mb-3"></i>
+                    <h4 class="card-title text-info fw-bold mb-3">@L["Reservations_View_Title"]</h4>
+                    <p class="card-text">@L["Reservations_View_Desc"]</p>                 
+                    <a href="/Prueba/MisReservas" class="btn btn-info mt-3 text-white">@L["Reservations_View_Button"]</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nueva Reserva -->
+        <div class="col-md-5">
+            <div class="card h-100 text-center shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body">
+                    <i class="bi bi-plus-circle-fill text-success fs-1 mb-3"></i>
+                    <h4 class="card-title text-success fw-bold mb-3">@L["Reservations_New_Title"]</h4>
+                    <p class="card-text">@L["Reservations_New_Desc"]</p>
+                    <a href="/Prueba/Reservar" class="btn btn-success mt-3 text-white">@L["Reservations_New_Button"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

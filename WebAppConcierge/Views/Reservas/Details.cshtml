@@ -1,0 +1,57 @@
+﻿@model WebAppConcierge.Models.Reserva
+
+@{
+    ViewData["Title"] = "Detalle de Reserva";
+}
+
+<div class="container py-4">
+    <h2 class="mb-4">
+        <i class="bi bi-file-earmark-text-fill text-primary"></i> Detalle de Reserva
+    </h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">ID Reserva</dt>
+                <dd class="col-sm-9">@Model.Id</dd>
+
+                <dt class="col-sm-3">Usuario</dt>
+                <dd class="col-sm-9">@Model.NombreUsuario</dd>
+
+                <dt class="col-sm-3">Correo</dt>
+                <dd class="col-sm-9">@Model.Correo</dd>
+
+                <dt class="col-sm-3">Fecha</dt>
+                <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-3">Hora</dt>
+                <dd class="col-sm-9">@Model.Hora.ToString(@"hh\:mm")</dd>
+
+                <dt class="col-sm-3">Servicios</dt>
+                <dd class="col-sm-9">@Model.Servicios</dd>
+
+                <dt class="col-sm-3">Notificar Internamente</dt>
+                <dd class="col-sm-9">
+                    @if (Model.NotificarInterno)
+                    {
+                        <span class="badge bg-success">Sí</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Fecha de Creación</dt>
+                <dd class="col-sm-9">@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <div class="mt-4 text-end">
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Volver al listado
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

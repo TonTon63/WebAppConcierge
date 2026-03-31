@@ -1,0 +1,125 @@
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@using System.Globalization
+﻿@{
+    ViewData["Title"] = L["Title_About"];
+}
+
+<!-- Hero -->
+<div class="container-fluid px-0">
+    <div class="hero-banner position-relative text-white text-center d-flex align-items-center justify-content-center"
+         style="background-image: url('/images/Principal/background.jpg'); background-size: cover; background-position: center; height: 450px;">
+        <div class="overlay position-absolute w-100 h-100" style="background-color: rgba(0,0,0,0.6); top: 0; left: 0;"></div>
+        <div class="position-relative z-1">
+            <h1 class="display-4 fw-bold" data-aos="fade-down">@L["About_Team_Heading"]</h1>
+            <p class="lead" data-aos="fade-up">@L["About_Team_Lead"]</p>
+        </div>
+    </div>
+</div>
+
+<!-- Nuestra Empresa -->
+<section class="py-5 text-dark" style="background-color: #fff3cd;">
+    <!-- Amarillo suave -->
+    <div class="container" style="max-width: 1000px;">
+        <h2 class="fw-bold mb-4 text-center text-warning" data-aos="fade-up">@L["About_Company_Title"]</h2>
+
+        <p class="lead text-muted" data-aos="fade-up">@L["About_Company_P1"]</p>
+        <p class="text-muted" data-aos="fade-up">@L["About_Company_P2"]</p>
+        <p class="text-muted" data-aos="fade-up">@L["About_Company_P3"]</p>
+        <p class="text-muted" data-aos="fade-up">@L["About_Company_P4"]</p>
+    </div>
+</section>
+
+<!-- Nuestro Equipo -->
+<section class="py-5 text-dark" style="background-color: #d4f9f3;">
+    <!-- Aqua -->
+    <div class="container" style="max-width: 1000px;">
+        <h2 class="fw-bold mb-3 text-center text-info" data-aos="fade-down">@L["About_Team_Heading"]</h2>
+        <p class="lead text-muted text-center mb-5" data-aos="fade-up">@L["About_Team_Lead"]</p>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-4" data-aos="zoom-in">
+                <img src="~/images/SobreNosotros/equipo1.jpg" class="img-fluid rounded-circle mb-3 shadow" style="width: 180px; height: 180px; object-fit: cover;" alt="Miembro 1">
+                <h5 class="fw-bold text-success">Alejandro Bogantes</h5>
+                <p class="text-muted">@L["About_Role_CEO"]</p>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                <img src="~/images/SobreNosotros/equipo2.jpg" class="img-fluid rounded-circle mb-3 shadow" style="width: 180px; height: 180px; object-fit: cover;" alt="Miembro 2">
+                <h5 class="fw-bold text-success">Natali Lacayo</h5>
+                <p class="text-muted">@L["About_Role_ExperienceManager"]</p>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                <img src="~/images/SobreNosotros/equipo3.jpg" class="img-fluid rounded-circle mb-3 shadow" style="width: 180px; height: 180px; object-fit: cover;" alt="Miembro 3">
+                <h5 class="fw-bold text-success">Anthony Vásquez</h5>
+                <p class="text-muted">@L["About_Role_LogisticsSpecialist"]</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Valores -->
+<section class="py-5 text-dark" style="background-color: #ffe6e6;">
+    <div class="container" style="max-width: 1000px;">
+        <div class="row align-items-center" data-aos="fade-right">
+            <div class="col-md-6">
+                <img src="~/images/Principal/values.jpg" alt="Valores Concierge" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-semibold mb-3 text-warning">@L["About_Values_Title"]</h3>
+                <ul class="list-unstyled fs-5">
+                    <li><i class="bi bi-star-fill text-warning me-2"></i> @L["About_Values_ServiceExcellence"]</li>
+                    <li><i class="bi bi-shield-lock-fill text-warning me-2"></i> @L["About_Values_Privacy"]</li>
+                    <li><i class="bi bi-heart-fill text-warning me-2"></i> @L["About_Values_DetailPassion"]</li>
+                    <li><i class="bi bi-lightbulb-fill text-warning me-2"></i> @L["About_Values_Innovation"]</li>
+                    <li><i class="bi bi-people-fill text-warning me-2"></i> @L["About_Values_EmpathyCommitment"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-5 text-dark" style="background-color: #e0f7fa;">
+    <div class="container" style="max-width: 1000px;">
+        <h3 class="fw-bold text-info text-center mb-5" data-aos="zoom-in">@L["About_Testimonials_Title"]</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card border-0 shadow rounded p-3 h-100 bg-white">
+                    <p class="fst-italic text-muted">@L["About_Testimonial_1_Text"]</p>
+                    <div class="fw-bold mt-3">— @L["About_Testimonial_1_Author"]</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card border-0 shadow rounded p-3 h-100 bg-white">
+                    <p class="fst-italic text-muted">@L["About_Testimonial_2_Text"]</p>
+                    <div class="fw-bold mt-3">— @L["About_Testimonial_2_Author"]</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 shadow rounded p-3 h-100 bg-white">
+                    <p class="fst-italic text-muted">@L["About_Testimonial_3_Text"]</p>
+                    <div class="fw-bold mt-3">— @L["About_Testimonial_3_Author"]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-center" style="background-color: #ccf2ff;">
+    <div class="container" data-aos="zoom-in">
+        <h4 class="mb-4">@L["About_CTA_Title"]</h4>
+        <a href="/Home/Contactar" class="btn btn-primary btn-lg px-5 py-2 shadow">@L["Home_CTA_Button"]</a>
+    </div>
+</section>
+
+<!-- Estilos adicionales -->
+<style>
+    .hero-banner h1, .hero-banner p {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .card p {
+        font-size: 1.05rem;
+    }
+</style>

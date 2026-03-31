@@ -1,0 +1,49 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@model WebAppConcierge.Models.Reserva
+
+@{
+    ViewData["Title"] = L["Reservations_ConfirmPage_Title"];
+}
+
+<div class="container py-5" style="max-width: 750px;">
+
+    <!-- Botón estilizado para volver -->
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-controller="Prueba" asp-action="Reservas"
+           class="btn text-white fw-semibold shadow"
+           style="background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; border-radius: 0.5rem;">
+            <i class="bi bi-arrow-left-circle me-2"></i> @L["Btn_BackToReservations"]
+        </a>
+    </div>
+
+    <div class="card shadow-lg rounded-4 border-0">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h4 class="mb-0">@L["Reservations_Confirmation_Title"]</h4>
+        </div>
+        <div class="card-body px-5 py-4">
+            <p><strong>@L["Label_Date"]:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
+            <p><strong>@L["Label_Time"]:</strong> @Model.Hora</p>
+            <p><strong>@L["Nav_Services"]:</strong> @Model.Servicios</p>
+            <p><strong>@L["Reservations_SendInternalNotification"]:</strong> @(Model.NotificarInterno ? "Sí" : "No")</p>
+
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botón Confirmar -->
+                <form asp-action="MisReservas" method="get">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-check-circle-fill me-1"></i> @L["Reservations_ConfirmAndView_Button"]
+                    </button>
+                </form>
+
+                <!-- Botón Cancelar -->
+                <form asp-action="EliminarReserva" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-outline-danger px-4">
+                        <i class="bi bi-x-circle me-1"></i> @L["Reservations_CancelThis_Button"]
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

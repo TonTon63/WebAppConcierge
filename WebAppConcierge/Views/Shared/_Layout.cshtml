@@ -1,0 +1,211 @@
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+﻿@using System.Security.Claims
+@using System.Globalization
+@{
+    var currentUi = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName; // "es" o "en"
+    var isEs = currentUi == "es";
+    var returnUrl = Context.Request.Path + Context.Request.QueryString;
+}
+
+<!DOCTYPE html>
+@*<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName" >*@
+<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Concierge Costa Rica</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @* 🔧 Sección opcional de estilos para cada vista *@
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+            <a class="navbar-brand fs-3 fw-bold text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                Concierge<span class="text-primary">CR</span>
+            </a>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">@L["Nav_Home"]</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Home" asp-action="ConciergeServices">@L["Nav_Services"]</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" asp-controller="Home" asp-action="Sobre" id="sobreNosotrosDropdown" role="button" aria-expanded="false">
+                            @L["Nav_About"]
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="sobreNosotrosDropdown">
+                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Preguntas">@L["Nav_FAQ"]</a></li>
+                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Contactar">@L["Nav_Contact"]</a></li>
+                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Locations">@L["Nav_Locations"]</a></li>
+                        </ul>
+                    </li>
+                    
+                @if (User.IsInRole("Administrador"))
+                {
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Prueba" asp-action="Panel">@L["Nav_Panel"]</a>
+                    </li>
+                }
+                else if (User.IsInRole("Usuario"))
+                {
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Prueba" asp-action="Reservas">@L["Nav_MyBookings"]</a>
+                    </li>
+                }
+
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Usuarios" asp-action="Create">@L["Nav_Register"]</a>
+                    </li>
+                }
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @using System.Security.Claims
+                    var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "Sin rol";
+                    <li class="nav-item me-3">
+                        <span class="nav-link">@role: @User.Identity.Name</span>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" asp-controller="Auth" asp-action="Logout">
+                                <button type="submit" class="btn btn-outline-light">@L["Btn_SignOut"]</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                            <a class="btn btn-primary d-flex align-items-center gap-2" asp-controller="Auth" asp-action="Login">
+                                <i class="bi bi-box-arrow-in-right"></i> @L["Nav_Login"]
+                            </a>
+                    </li>
+                }
+            </ul>
+
+            <!-- Idioma -->
+                <!-- boton de idiomas sin configuración
+            <div class="dropdown ms-3">
+                <button class="btn btn-light dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false"> @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "es" ? L["Lang_Spanish"] : L["Lang_English"]) </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                    <li><a class="dropdown-item" asp-controller="Lang" asp-action="Set" asp-route-culture="es-CR" asp-route-returnUrl="@returnUrl">@L["Lang_Spanish"]</a></li>
+                    <li><a class="dropdown-item" asp-controller="Lang" asp-action="Set" asp-route-culture="en-US" asp-route-returnUrl="@returnUrl">@L["Lang_English"]</a></li>
+                </ul>
+            </div>
+                -->
+
+
+
+
+                <div class="dropdown ms-3">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false"> @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "es" ? L["Lang_Spanish"] : L["Lang_English"]) </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                        <li>
+                            <a class="dropdown-item" asp-controller="Lang" asp-action="Set" asp-route-culture="es-CR" asp-route-returnUrl="@returnUrl">@L["Lang_Spanish"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Lang" asp-action="Set" asp-route-culture="en-US" asp-route-returnUrl="@returnUrl">@L["Lang_English"]</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+        </div>
+    </div>
+</nav>
+
+
+    <main role="main" class="p-0 m-0">
+        @RenderBody()
+    </main>
+
+    <footer style="background-color: #000; color: white; padding: 40px 0; font-family: 'Segoe UI', sans-serif;">
+        <div class="container">
+            <div class="row text-start">
+                <div class="col-md-3">
+                    <h5>@L["Nav_About"]</h5>
+                    <hr style="border-color: white; width: 40px; margin-top: 0;">
+                    <p>@L["Footer_About_Text"]</p>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>@L["Footer_Services_Title"]</h5>
+                    <hr style="border-color: white; width: 40px; margin-top: 0;">
+                    <ul class="list-unstyled">
+                        <li>@L["Footer_Service_Villas"]</li>
+                        <li>@L["Footer_Service_PrivateChefs"]</li>
+                        <li>@L["Footer_Service_Transport"]</li>
+                        <li>@L["Footer_Service_PrivateYachts"]</li>
+                        <li>@L["Footer_Service_PrivateTours"]</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>@L["Footer_Destinations_Title"]</h5>
+                    <hr style="border-color: white; width: 40px; margin-top: 0;">
+                    <ul class="list-unstyled">
+                        <li>@L["Footer_Destination_CostaRica"]</li>
+                        <li>@L["Footer_Destination_RivieraMaya"]</li>
+                        <li>@L["Footer_Destination_Bahamas"]</li>
+                        <li>@L["Footer_Destination_TurksCaicos"]</li>
+                        <li>@L["Footer_Destination_UnitedStates"]</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>@L["Footer_Contact_Title"]</h5>
+                    <hr style="border-color: white; width: 40px; margin-top: 0;">
+                    <p><strong>@L["Footer_Email_Label"]</strong> info@conciergeCostaRica.com</p>
+                    <p><strong>@L["Footer_Phone_Label"]</strong> +506 8888-8888</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white" aria-label="@L["Footer_Facebook"]"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white" aria-label="@L["Footer_Instagram"]"><i class="bi bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border-color: #444;">
+            <p class="text-center mt-3 mb-0">© @DateTime.Now.Year  Concierge Costa Rica. @L["Footer_AllRightsReserved"]</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inicializa AOS correctamente cuando todo el DOM y scripts estén cargados
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

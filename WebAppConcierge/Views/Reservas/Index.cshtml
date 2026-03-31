@@ -1,0 +1,103 @@
+﻿@model List<WebAppConcierge.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas ";
+}
+
+<div class="container py-4">
+    <h2 class="mb-4"><i class="bi bi-journal-bookmark-fill text-primary"></i> Reservas Registradas</h2>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+    <div class="table-responsive rounded shadow-sm">
+        <form method="get" class="mb-4 d-flex gap-2">
+            <input type="text" name="filtro" value="@ViewBag.Filtro" class="form-control" placeholder="Buscar por nombre o correo..." />
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-search"></i> Buscar
+            </button>
+        </form>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <form method="get" class="d-flex gap-2">
+                <input type="text" name="filtro" value="@ViewBag.Filtro" class="form-control" placeholder="Buscar por nombre o correo..." />
+                <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-search"></i> Buscar
+                </button>
+            </form>
+
+            <a asp-controller="Prueba" asp-action="Reservar" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Crear Reserva
+            </a>
+        </div>
+
+        <table class="table table-hover align-middle">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Servicios</th>
+                    <th>Notificar</th>
+                    <th>Creado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr class="text-center">
+                        <td>@r.Id</td>
+                        <td>@r.NombreUsuario</td>
+                        <td>@r.Correo</td>
+                        <td>@r.Fecha.ToString("dd/MM/yyyy")</td>
+                        <td>@r.Hora.ToString(@"hh\:mm")</td>
+                        <td>@r.Servicios</td>
+                        <td>
+                            @if (r.NotificarInterno)
+                            {
+                                <span class="badge bg-success">Sí</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">No</span>
+                            }
+                        </td>
+                        <td>@r.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>
+                            <form asp-action="Eliminar" asp-route-id="@r.Id" method="post" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar esta reserva?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i> Borrar
+                                </button>
+                            </form>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (ViewBag.TotalPaginas > 1)
+        {
+            <nav aria-label="Paginación de reservas">
+                <ul class="pagination justify-content-center mt-4">
+                    @for (int i = 1; i <= (int)ViewBag.TotalPaginas; i++)
+                    {
+                        <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("Index", new { pagina = i, filtro = ViewBag.Filtro })">@i</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+
+    </div>
+</div>
+
+
+

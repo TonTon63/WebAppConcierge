@@ -1,0 +1,163 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Iniciar Sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #0c3f4c, #198754);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .login-box .logo {
+            height: 120px;
+            width: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .login-box h2 {
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #0c3f4c;
+        }
+
+        .input-group-text {
+            background-color: #198754;
+            color: white;
+            border: none;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #198754;
+        }
+
+        .btn-primary {
+            background-color: #198754;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #157347;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box text-center">
+        <img src="~/images/img/logoConciergeCR.png" alt="Logo" class="logo mx-auto d-block" />
+
+        <h2>@L["Nav_Login"]</h2>
+
+        <form asp-action="Login" method="post" class="text-start">
+            <div class="mb-3">
+                <label class="form-label">@L["Label_Email"]</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input name="email" type="email" class="form-control" placeholder="@L["Contact_Placeholder_Email"]" required />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">@L["Label_Password"]</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input name="password" type="password" class="form-control" placeholder="********" required />
+                </div>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary">@L["Btn_SignIn"]</button>
+            </div>
+
+            @if (ViewData.ModelState[string.Empty]?.Errors.Count > 0)
+            {
+                <div class="alert alert-danger text-center">
+                    @ViewData.ModelState[string.Empty].Errors[0].ErrorMessage
+                </div>
+            }
+        </form>
+
+        <form method="post" asp-controller="Home" asp-action="Index" class="mt-2">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-secondary">@L["Btn_Cancel"]</button>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var err = '@Html.Raw(TempData["ErrorMessage"])';
+                if (err) {
+                    Swal.fire({ icon: 'error', title: 'Lo Sentimos...', text: err });
+                }
+
+                var ok = '@Html.Raw(TempData["SuccessMessage"])';
+                if (ok) {
+                    Swal.fire({ icon: 'success', title: 'Perfecto', text: ok });
+                }
+            });
+        </script>
+    }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>
+
+
+
+

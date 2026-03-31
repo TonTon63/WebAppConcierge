@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Preguntas Frecuentes (FAQ)";
+}
+
+<section class="faq-hero-section text-white text-center py-5" style="background: linear-gradient(135deg, #0099cc, #00cc88);">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-2">Preguntas Frecuentes</h1>
+        <p class="lead">Encuentra respuestas a las dudas más comunes sobre nuestros servicios</p>
+    </div>
+</section>
+
+<!-- Sección de preguntas destacadas -->
+<div class="container my-5">
+    <div class="row text-center g-4">
+        <div class="col-md-4">
+            <div class="p-4 border rounded shadow-sm bg-white h-100">
+                <i class="bi bi-stars fs-1 text-warning"></i>
+                <h5 class="fw-bold mt-3">¿Qué es Concierge?</h5>
+                <p class="text-muted">Servicio personalizado para gestionar tus necesidades diarias y especiales.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 border rounded shadow-sm bg-white h-100">
+                <i class="bi bi-person-check fs-1 text-success"></i>
+                <h5 class="fw-bold mt-3">¿Cómo me registro?</h5>
+                <p class="text-muted">Solo necesitas tu correo electrónico y contraseña para empezar.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 border rounded shadow-sm bg-white h-100">
+                <i class="bi bi-credit-card fs-1 text-danger"></i>
+                <h5 class="fw-bold mt-3">¿Qué métodos de pago?</h5>
+                <p class="text-muted">Aceptamos tarjetas y transferencias bancarias de forma segura.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección FAQ con acordeón -->
+<div class="container py-4" style="max-width: 900px;">
+    <div class="accordion accordion-flush" id="faqAccordion" data-aos="fade-up">
+
+        <!-- General -->
+        <h4 class="text-primary fw-bold mt-4"><i class="bi bi-info-circle-fill me-2"></i>General</h4>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingGeneral1">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeneral1">
+                    ¿Qué es el servicio de Concierge?
+                </button>
+            </h2>
+            <div id="collapseGeneral1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    El servicio de Concierge ofrece asistencia personalizada: reservas, gestiones y recomendaciones a la medida de tus necesidades.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingGeneral2">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeneral2">
+                    ¿Cómo me registro en la plataforma?
+                </button>
+            </h2>
+            <div id="collapseGeneral2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Haz clic en "Registrarse" en el menú superior, completa el formulario con tus datos y confirma tu cuenta desde el correo que te enviaremos.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservas -->
+        <h4 class="text-success fw-bold mt-5"><i class="bi bi-calendar-check-fill me-2"></i>Reservas</h4>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingReservas1">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReservas1">
+                    ¿Puedo modificar o cancelar mi reserva?
+                </button>
+            </h2>
+            <div id="collapseReservas1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Sí, desde tu panel de usuario encontrarás las opciones "Modificar" y "Cancelar" junto a cada una de tus reservas confirmadas.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingReservas2">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReservas2">
+                    ¿Cómo recibo la confirmación de mi reserva?
+                </button>
+            </h2>
+            <div id="collapseReservas2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Al confirmar, te enviaremos un correo electrónico con todos los detalles.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagos -->
+        <h4 class="text-danger fw-bold mt-5"><i class="bi bi-credit-card-2-back-fill me-2"></i>Pagos</h4>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingPagos1">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagos1">
+                    ¿Qué métodos de pago aceptan?
+                </button>
+            </h2>
+            <div id="collapsePagos1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Aceptamos tarjetas de crédito, débito y transferencias bancarias. Todos los pagos se procesan de forma segura.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-white border-0 shadow rounded mb-3">
+            <h2 class="accordion-header" id="headingPagos2">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagos2">
+                    ¿Puedo obtener factura o recibo?
+                </button>
+            </h2>
+            <div id="collapsePagos2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Sí, al finalizar tu pago se enviará la factura al correo registrado.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de ayuda adicional -->
+<section class="faq-help-section position-relative py-5 text-white" data-aos="fade-up">
+    <div class="bg-image position-absolute top-0 start-0 w-100 h-100" style="background-image: url('/images/Principal/faq-help.jpg'); background-size: cover; background-position: center; filter: brightness(0.4); z-index: 1;"></div>
+
+    <div class="container position-relative z-2 text-center">
+        <h3 class="fw-bold mb-3">¿Aún tienes dudas?</h3>
+        <p class="lead mb-4">Nuestro equipo de Concierge está listo para ayudarte con cualquier consulta personalizada.</p>
+        <a href="/Home/Contactar" class="btn btn-light btn-lg px-4">
+            <i class="bi bi-envelope-fill me-2"></i> Contáctanos
+        </a>
+    </div>
+</section>
+
+<style>
+    .faq-hero-section {
+        background: linear-gradient(to right, #00a8cc, #00c18c);
+    }
+
+    .accordion-button:not(.collapsed) {
+        background-color: #f0f0f0;
+        color: #000;
+    }
+
+    .accordion-button:focus {
+        box-shadow: none;
+    }
+
+    .faq-help-section {
+        overflow: hidden;
+        min-height: 300px;
+    }
+
+    .bg-image {
+        transition: transform 0.5s ease;
+    }
+
+    .faq-help-section:hover .bg-image {
+        transform: scale(1.02);
+    }
+
+    .bi {
+        vertical-align: middle;
+    }
+</style>

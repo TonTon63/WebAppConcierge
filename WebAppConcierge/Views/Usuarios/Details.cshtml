@@ -1,0 +1,68 @@
+﻿@model WebAppConcierge.Models.Usuario
+@{
+    ViewData["Title"] = "Detalles del Usuario";
+}
+
+<div class="container py-5" style="max-width: 600px;">
+    <div class="card shadow-lg rounded-4 border-0" data-aos="zoom-in">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h4 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Detalles del Usuario</h4>
+        </div>
+        <div class="card-body px-5 py-4">
+            <dl class="row">
+                <dt class="col-sm-4">Nombre</dt>
+                <dd class="col-sm-8">@Model.TC_Nombre</dd>
+
+                <dt class="col-sm-4">Apellido</dt>
+                <dd class="col-sm-8">@Model.TC_Apellido</dd>
+
+                <dt class="col-sm-4">Correo</dt>
+                <dd class="col-sm-8">@Model.TC_Correo_Electronico</dd>
+
+                <dt class="col-sm-4">Cédula</dt>
+                <dd class="col-sm-8">@Model.TC_Cedula</dd>
+
+                <dt class="col-sm-4">Teléfono</dt>
+                <dd class="col-sm-8">@Model.TC_Telefono</dd>
+
+                <dt class="col-sm-4">Rol</dt>
+                <dd class="col-sm-8">@Model.NombreRol</dd>
+            </dl>
+
+            <div class="mt-4 d-flex justify-content-between">
+                <a asp-action="Edit" asp-route-id="@Model.TN_Id_Usuario" class="btn btn-warning">
+                    <i class="bi bi-pencil-fill me-1"></i> Editar
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-1"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const success = '@TempData["SuccessMessage"]';
+        const error = '@TempData["ErrorMessage"]';
+
+        if (success) {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: success
+            });
+        }
+
+        if (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error
+            });
+        }
+    </script>
+}
+
+

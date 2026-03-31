@@ -1,0 +1,62 @@
+﻿@model List<WebAppConcierge.Models.Usuario>
+@{
+    ViewData["Title"] = "Usuarios por Rol";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-people-fill me-2 text-primary"></i>Usuarios Agrupados por Rol</h2>
+        <div>
+            <a asp-action="ExportarUsuariosPorRol" class="btn btn-success">
+                <i class="bi bi-file-earmark-excel-fill me-1"></i> Exportar a Excel
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-1"></i>Volver
+            </a>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered shadow-sm">
+                <thead class="table-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model)
+                    {
+                        <tr>
+                            <td>@usuario.TN_Id_Usuario</td>
+                            <td>@usuario.TC_Nombre</td>
+                            <td>@usuario.TC_Apellido</td>
+                            <td>@usuario.TC_Correo_Electronico</td>
+                            <td>
+                                @if (usuario.NombreRol == "Administrador")
+                                {
+                                    <span class="badge bg-danger">@usuario.NombreRol</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@usuario.NombreRol</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            <i class="bi bi-info-circle me-2"></i>No hay usuarios disponibles para mostrar.
+        </div>
+    }
+</div>

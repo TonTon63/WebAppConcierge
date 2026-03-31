@@ -1,0 +1,216 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@{
+    ViewData["Title"] = L["Reservations_NewPage_Title"];
+}
+
+@section Styles {
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+}
+
+<section class="container py-5" style="max-width: 900px;">
+    <!-- Botón volver -->
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-controller="Prueba" asp-action="Reservas"
+           class="btn text-white fw-semibold shadow"
+           style="background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; border-radius: 0.5rem;">
+            <i class="bi bi-arrow-left-circle me-2"></i> @L["Btn_BackToReservations"]
+        </a>
+    </div>
+
+    <div class="card shadow-lg rounded-4 border-0" data-aos="zoom-in">
+        <div class="card-header bg-gradient text-white rounded-top-4" style="background: linear-gradient(to right, #0088cc, #00bfa6);">
+            <h4 class="mb-0"><i class="bi bi-calendar-plus me-2"></i> Nueva Reserva</h4>
+        </div>
+
+        <div class="card-body px-5 py-4">
+            <form asp-controller="Prueba" asp-action="Crear" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- País -->
+                <div class="mb-4">
+                    <label for="Pais" class="form-label fw-semibold">@L["Label_Country"]</label>
+                    <select id="Pais" name="Pais" class="form-select" required>
+                        <option value="" selected disabled>@L["Services_SelectCountry_Placeholder"]</option>
+                        <option value="cr">Costa Rica</option>
+                        <option value="tc">Turks and Caicos</option>
+                        <option value="mx">@L["Services_MX_Title"]</option>
+                        <option value="us">@L["Services_USA_Title"]</option>
+                        <option value="bs">Bahamas</option>
+                    </select>
+                    <small class="text-muted">@L["Services_FilterCountry_Hint"]</small>
+                </div>
+
+                <!-- Servicios -->
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label class="form-label fw-semibold m-0">@L["Label_AvailableServices"]</label>
+                    <button type="button" id="btnToggleAll" class="btn btn-sm btn-outline-primary" disabled>@L["Btn_SelectAll"]</button>
+                </div>
+
+                <div id="ServiciosContainer" class="row row-cols-1 row-cols-md-3 g-4"></div>
+                <small class="text-muted d-block mt-1">@L["Services_CardSelect_Hint"]</small>
+
+                <hr class="my-4" />
+
+                <!-- Fecha y hora -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="Fecha" class="form-label fw-semibold">@L["Label_Date"]</label>
+                        <input type="date" id="Fecha" name="Fecha" class="form-control" required />
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="Hora" class="form-label fw-semibold">@L["Label_Time"]</label>
+                        <input type="time" id="Hora" name="Hora" class="form-control" required />
+                    </div>
+                </div>
+
+                <!-- Notificación interna -->
+                <div class="form-check mb-4">
+                    <input type="checkbox" class="form-check-input" id="NotificarInterno" name="NotificarInterno" checked />
+                    <label class="form-check-label fw-semibold" for="NotificarInterno"> @L["Reservations_SendInternalNotification"]</label>
+                </div>
+
+                <!-- Botones -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-check-circle-fill me-1"></i>  @L["Reservations_Confirm_Button"]
+                    </button>
+                    <a asp-controller="Prueba" asp-action="Reservas" class="btn btn-outline-danger px-4">
+                        <i class="bi bi-x-circle me-1"></i> @L["Btn_Cancel"]
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <!-- AOS (animaciones) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        // ============ SERVICIOS DISPONIBLES ============
+
+        const SERVICES_BY_COUNTRY = {
+            cr: [
+                { id: "cr-transport", nombre: "@L["CS_LuxuryGround_Title"]", img: "transport.jpg", desc: "@L["CS_LuxuryGround_Desc"]" },
+                { id: "cr-jet", nombre: "@L["CS_PrivateJetHeli_Title"]", img: "jet.jpg", desc: "@L["CS_PrivateJetHeli_Desc"]" },
+                { id: "cr-heli", nombre: "@L["Services_Helicopter_Title"]", img: "helicopter.jpg", desc: "@L["Services_Helicopter_Desc"]" },
+                { id: "cr-yacht", nombre: "@L["CS_YachtCharter_Title"]", img: "yacht.jpg", desc: "@L["CS_YachtCharter_Desc"]" },
+                { id: "cr-catamaran", nombre: "@L["Services_SailingCatamaran_Title"]", img: "catamaran.jpg", desc: "@L["Services_SailingCatamaran_Desc"]" },
+                { id: "cr-chef", nombre: "@L["CS_PrivateChefs_Title"]", img: "chef.jpg", desc: "@L["CS_PrivateChefs_Desc"]" },
+                { id: "cr-groceries", nombre: "@L["CS_ShoppingProvision_Title"]", img: "groceries.jpg", desc: "@L["CS_ShoppingProvision_Desc"]" },
+                { id: "cr-fasttrack", nombre: "@L["CS_VIPFastTrack_Title"]", img: "fasttrack.jpg", desc: "@L["CS_VIPFastTrack_Desc"]" },
+                { id: "cr-flowers", nombre: "@L["Services_FloralDecoration_Title"]", img: "flowers.jpg", desc: "@L["Services_FloralDecoration_Desc"]" },
+                { id: "cr-spanish", nombre: "@L["Services_SpanishTeacher_Title"]", img: "spanish.jpg", desc: "@L["Services_SpanishTeacher_Desc"]" },
+                { id: "cr-greet", nombre: "@L["Services_ReceptionWelcome_Title"]", img: "greet.jpg", desc: "@L["Services_ReceptionWelcome_Desc"]" },
+                { id: "cr-inspection", nombre: "@L["Services_PropertyInspection_Title"]", img: "inspection.jpg", desc: "@L["Services_PropertyInspection_Desc"]" },
+                { id: "cr-photo", nombre: "@L["Services_ProfessionalPhotography_Title"]", img: "photography.jpg", desc: "@L["Services_ProfessionalPhotography_Desc"]" },
+                { id: "cr-bartender", nombre: "@L["Services_BartenderMixologist_Title"]", img: "bartender.jpg", desc: "@L["Services_BartenderMixologist_Desc"]" }
+            ],
+            tc: [
+                { id: "tc-transport", nombre: "@L["CS_LuxuryGround_Title"]", img: "transport.jpg", desc: "@L["CS_LuxuryGround_Desc"]" },
+                { id: "tc-yacht", nombre: "@L["CS_YachtCharter_Title"]", img: "yacht.jpg", desc: "@L["CS_YachtCharter_Desc"]" },
+                { id: "tc-chef", nombre: "@L["CS_PrivateChefs_Title"]", img: "chef.jpg", desc: "@L["CS_PrivateChefs_Desc"]" },
+                { id: "tc-groceries", nombre: "@L["CS_ShoppingProvision_Title"]", img: "groceries.jpg", desc: "@L["CS_ShoppingProvision_Desc"]" },
+                { id: "tc-spa", nombre: "@L["CS_InHomeSpa_Title"]", img: "spa.jpg", desc: "@L["CS_InHomeSpa_Desc"]" },
+                { id: "tc-butler", nombre: "@L["Services_Butler_Title"]", img: "butler.jpg", desc: "@L["Services_Butler_Desc"]" },
+                { id: "tc-fasttrack", nombre: "@L["CS_VIPFastTrack_Title"]", img: "fasttrack.jpg", desc: "@L["CS_VIPFastTrack_Desc"]" },
+                { id: "tc-villa", nombre: "@L["CS_VillaRental_Title"]", img: "villa.jpg", desc: "@L["Services_VillaRental_Desc"]" }
+            ],
+            mx: [
+                { id: "mx-transport", nombre: "@L["CS_LuxuryGround_Title"]", img: "transport.jpg", desc: "@L["CS_LuxuryGround_Desc"]" },
+                { id: "mx-yacht", nombre: "@L["CS_YachtCharter_Title"]", img: "yacht.jpg", desc: "@L["CS_YachtCharter_Desc"]" },
+                { id: "mx-tours", nombre: "@L["CS_PrivateTours_Title"]", img: "tours.jpg", desc: "@L["Services_PrivateTours_Desc_MX"]" },
+                { id: "mx-villa", nombre: "@L["CS_VillaRental_Title"]", img: "villa.jpg", desc: "@L["Services_VillaRental_Desc_MX"]" }
+            ],
+            us: [
+                { id: "us-transport", nombre: "@L["CS_LuxuryGround_Title"]", img: "transport.jpg", desc: "@L["CS_LuxuryGround_Desc"]" },
+                { id: "us-tours", nombre: "@L["CS_PrivateTours_Title"]", img: "tours.jpg", desc: "@L["Services_PrivateTours_Desc_US"]" },
+                { id: "us-restaurant", nombre: "@L["CS_RestaurantRes_Title"]", img: "restaurant.jpg", desc: "@L["CS_RestaurantRes_Desc"]" }
+            ],
+            bs: [
+                { id: "bs-villa", nombre: "@L["CS_VillaRental_Title"]", img: "villa.jpg", desc: "@L["Services_VillaRental_Desc_BS"]" },
+                { id: "bs-transport", nombre: "@L["CS_LuxuryGround_Title"]", img: "transport.jpg", desc: "@L["CS_LuxuryGround_Desc"]" },
+                { id: "bs-spa", nombre: "@L["CS_InHomeSpa_Title"]", img: "spa.jpg", desc: "@L["CS_InHomeSpa_Desc"]" },
+                { id: "bs-chef", nombre: "@L["CS_PrivateChefs_Title"]", img: "chef.jpg", desc: "@L["CS_PrivateChefs_Desc"]" },
+                { id: "bs-fasttrack", nombre: "@L["CS_VIPFastTrack_Title"]", img: "fasttrack.jpg", desc: "@L["CS_VIPFastTrack_Desc"]" },
+                { id: "bs-groceries", nombre: "@L["CS_ShoppingProvision_Title"]", img: "groceries.jpg", desc: "@L["CS_ShoppingProvision_Desc"]" }
+            ]
+        };
+
+        const container = document.getElementById('ServiciosContainer');
+        const selectPais = document.getElementById('Pais');
+        const btnToggleAll = document.getElementById('btnToggleAll');
+
+                function renderServicios(countryKey) {
+            // ⛔ Eliminar todos los checkboxes antiguos antes de renderizar nuevos
+            document.querySelectorAll("input[name='Servicios']").forEach(cb => cb.remove());
+
+            container.innerHTML = '';
+            btnToggleAll.disabled = true;
+
+            if (!countryKey || !SERVICES_BY_COUNTRY[countryKey]) return;
+
+            const list = SERVICES_BY_COUNTRY[countryKey];
+            list.forEach(s => {
+                const col = document.createElement('div');
+                col.className = 'col';
+                col.innerHTML = `
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="/images/ConciergeServices/${s.img}" class="card-img-top" alt="${s.nombre}">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input servicio-check" type="checkbox" name="Servicios" value="${s.nombre}" id="${s.id}">
+                                <label class="form-check-label fw-semibold" for="${s.id}">${s.nombre}</label>
+                                <p class="text-muted small mb-0">${s.desc}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                container.appendChild(col);
+            });
+
+            btnToggleAll.disabled = list.length === 0;
+            btnToggleAll.textContent = 'Seleccionar todo';
+        }
+
+
+        btnToggleAll.addEventListener('click', () => {
+            const checks = container.querySelectorAll('.servicio-check');
+            const allChecked = Array.from(checks).every(c => c.checked);
+            checks.forEach(c => c.checked = !allChecked);
+            btnToggleAll.textContent = allChecked ? 'Seleccionar todo' : 'Deseleccionar todo';
+        });
+
+        selectPais.addEventListener('change', (e) => {
+            renderServicios(e.target.value);
+        });
+
+        // Cargar por defecto Costa Rica
+            document.addEventListener('DOMContentLoaded', () => {
+            selectPais.value = 'cr';
+            renderServicios(selectPais.value);
+        }); 
+    </script>
+
+    @if (TempData["ReservaSuccessMessage"] != null || TempData["ReservaErrorMessage"] != null)
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const success = @Html.Raw(Json.Serialize(TempData["ReservaSuccessMessage"]));
+                const error = @Html.Raw(Json.Serialize(TempData["ReservaErrorMessage"]));
+                if (success) {
+                    const title = success.includes("actualizada") ? '¡Reserva Modificada!' : '¡Reserva Exitosa!';
+                    Swal.fire({ icon: 'success', title: title, text: success, confirmButtonColor: '#198754' });
+                }
+                if (error) {
+                    Swal.fire({ icon: 'error', title: 'Error', text: error, confirmButtonColor: '#dc3545' });
+                }
+            });
+        </script>
+    }
+}

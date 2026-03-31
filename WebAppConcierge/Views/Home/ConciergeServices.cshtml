@@ -1,0 +1,438 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@{
+    ViewData["Title"] = L["Title_Services"];
+}
+<section class="services-section bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold text-primary" data-aos="fade-up"> @L["Services_Intro_Title"]</h2>
+
+        <p class="text-center text-muted mb-5" data-aos="fade-up">
+            @L["Services_Intro_Lead"]
+        </p>
+
+        <!-- Costa Rica -->
+        <h3 class="text-primary mt-5 mb-4">Costa Rica</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Servicio: Transporte terrestre de lujo (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/transport.jpg" class="card-img-top" alt="@L["CS_LuxuryGround_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_LuxuryGround_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_LuxuryGround_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Jet privado y helicóptero (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/jet.jpg" class="card-img-top" alt="@L["CS_PrivateJetHeli_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateJetHeli_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateJetHeli_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helicóptero FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/helicopter.jpg" class="card-img-top" alt="Helicóptero">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_Helicopter_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_Helicopter_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Yate privado (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/yacht.jpg" class="card-img-top" alt="@L["CS_YachtCharter_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_YachtCharter_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_YachtCharter_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catamarán de Vela FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/catamaran.jpg" class="card-img-top" alt="Catamarán de vela">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_SailingCatamaran_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_SailingCatamaran_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Chefs privados (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/chef.jpg" class="card-img-top" alt="@L["CS_PrivateChefs_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateChefs_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateChefs_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Compras y abastecimiento (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/groceries.jpg" class="card-img-top" alt="@L["CS_ShoppingProvision_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_ShoppingProvision_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_ShoppingProvision_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: VIP Fast Track (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/fasttrack.jpg" class="card-img-top" alt="@L["CS_VIPFastTrack_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VIPFastTrack_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VIPFastTrack_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arreglos Florales FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/flowers.jpg" class="card-img-top" alt="Arreglos florales">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_FloralDecoration_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_FloralDecoration_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profesor de Español FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/spanish.jpg" class="card-img-top" alt="Profesor de español">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_SpanishTeacher_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_SpanishTeacher_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet & Greet FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/greet.jpg" class="card-img-top" alt="Meet and Greet">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_ReceptionWelcome_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_ReceptionWelcome_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inspección de Propiedad FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/inspection.jpg" class="card-img-top" alt="Inspección de propiedad">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_PropertyInspection_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_PropertyInspection_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fotografía Profesional FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/photography.jpg" class="card-img-top" alt="Fotografía profesional">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_ProfessionalPhotography_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_ProfessionalPhotography_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bartender y Mixólogo FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/bartender.jpg" class="card-img-top" alt="Bartender">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_BartenderMixologist_Title"]</h5>
+                        <p class="card-text text-muted">@L["Services_BartenderMixologist_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="text-primary mt-5 mb-4">Turks and Caicos</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Servicio: Transporte terrestre de lujo (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/transport.jpg" class="card-img-top" alt="@L["CS_LuxuryGround_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_LuxuryGround_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_LuxuryGround_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Yate privado (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/yacht.jpg" class="card-img-top" alt="@L["CS_YachtCharter_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_YachtCharter_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_YachtCharter_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Chefs privados (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/chef.jpg" class="card-img-top" alt="@L["CS_PrivateChefs_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateChefs_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateChefs_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Compras y abastecimiento (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/groceries.jpg" class="card-img-top" alt="@L["CS_ShoppingProvision_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_ShoppingProvision_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_ShoppingProvision_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Spa en el hogar (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/spa.jpg" class="card-img-top" alt="@L["CS_InHomeSpa_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_InHomeSpa_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_InHomeSpa_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Mayordomo FALTA -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/butler.jpg" class="card-img-top" alt="Mayordomo">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["Services_Butler_Title"]</h5>
+                        <p class="card-text text-muted">
+                            @L["Services_Butler_Desc"]
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: VIP Fast Track (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/fasttrack.jpg" class="card-img-top" alt="@L["CS_VIPFastTrack_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VIPFastTrack_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VIPFastTrack_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Alquiler de villas (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/villa.jpg" class="card-img-top" alt="@L["CS_VillaRental_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VillaRental_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VillaRental_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-primary mt-5 mb-4">@L["Services_MX_Title"]</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Servicio: Transporte terrestre de lujo (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/transport.jpg" class="card-img-top" alt="@L["CS_LuxuryGround_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_LuxuryGround_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_LuxuryGround_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Yate privado (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/yacht.jpg" class="card-img-top" alt="@L["CS_YachtCharter_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_YachtCharter_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_YachtCharter_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Tours privados (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/tours.jpg" class="card-img-top" alt="@L["CS_PrivateTours_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateTours_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateTours_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Alquiler de villas (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/villa.jpg" class="card-img-top" alt="@L["CS_VillaRental_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VillaRental_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VillaRental_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="text-primary mt-5 mb-4">@L["Services_USA_Title"]</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Servicio: Transporte terrestre de lujo (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/transport.jpg" class="card-img-top" alt="@L["CS_LuxuryGround_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_LuxuryGround_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_LuxuryGround_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Tours privados (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/tours.jpg" class="card-img-top" alt="@L["CS_PrivateTours_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateTours_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateTours_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Reservas de restaurantes (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/restaurant.jpg" class="card-img-top" alt="@L["CS_RestaurantRes_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_RestaurantRes_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_RestaurantRes_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="text-primary mt-5 mb-4">Bahamas</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Servicio: Alquiler de villas (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/villa.jpg" class="card-img-top" alt="@L["CS_VillaRental_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VillaRental_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VillaRental_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Transporte terrestre de lujo (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/transport.jpg" class="card-img-top" alt="@L["CS_LuxuryGround_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_LuxuryGround_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_LuxuryGround_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Spa en el hogar (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/spa.jpg" class="card-img-top" alt="@L["CS_InHomeSpa_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_InHomeSpa_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_InHomeSpa_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Chefs privados (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/chef.jpg" class="card-img-top" alt="@L["CS_PrivateChefs_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_PrivateChefs_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_PrivateChefs_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: VIP Fast Track (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/fasttrack.jpg" class="card-img-top" alt="@L["CS_VIPFastTrack_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_VIPFastTrack_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_VIPFastTrack_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicio: Compras y abastecimiento (con clave) -->
+            <div class="col" data-aos="zoom-in">
+                <div class="card h-100 shadow-lg border-0">
+                    <img src="~/images/ConciergeServices/groceries.jpg" class="card-img-top" alt="@L["CS_ShoppingProvision_Alt"]">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold text-center">@L["CS_ShoppingProvision_Title"]</h5>
+                        <p class="card-text text-muted">@L["CS_ShoppingProvision_Desc"]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>

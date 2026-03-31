@@ -1,0 +1,226 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d0d3d4; /* Fondo negro */
+    color: #000000; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar fijo */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+/* Navbar estilo personalizado */
+.custom-navbar {
+    background-color: #212f3c !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+    .custom-navbar .nav-link,
+    .custom-navbar .navbar-brand {
+        color: #fdfefe !important; /* Letras negras */
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .custom-navbar .nav-link:hover {
+            color: #f4c542 !important; /* Dorado suave */
+        }
+
+/* Hero */
+/* .hero {
+    background: linear-gradient(rgba(20,92,88,0.65), rgba(20,92,88,0.65)), url('/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 30px;
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+    */
+/* Carrusel */
+.carousel-inner img,
+.card-img-top {
+    background-color: transparent;
+}
+
+.fullscreen-carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+    .fullscreen-carousel .carousel-item img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+    .carousel-caption h1, .carousel-caption p {
+        color: white;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    }
+
+.intro-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/img/img17.jpg') center/cover no-repeat;
+    min-height: 100vh;
+    padding: 80px 15px;
+}
+
+/* Tarjetas */
+.service-card {
+    border: none;
+    border-radius: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #1abc9c;
+    border-color: #16a085;
+}
+
+    .btn-primary:hover {
+        background-color: #149174;
+    }
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    font-size: 0.9rem;
+    padding: 20px 0;
+}
+
+/* Idioma dropdown */
+#langDropdown {
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .carousel-inner img {
+        height: 250px;
+    }
+}
+
+.contact-hero {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+}
+
+.contact-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/img/img20.jpg') center/cover no-repeat;
+    padding: 80px 15px;
+    min-height: 60vh;
+}
+
+
+/* Mostrar el dropdown al hacer hover en desktop */
+@media (min-width: 992px) {
+    .navbar .dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Alineación con el botón */
+    }
+}
+
+}
+
+/* Cambiar color del enlace activo en dropdown */
+.dropdown-menu .dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: #f4c542; /* Un dorado suave */
+        color: #212f3c; /* Texto oscuro para contraste */
+    }
+
+
+/* Estilo para el botón del dropdown */
+.navbar .nav-link.dropdown-toggle:hover {
+    color: #0d6efd;
+}
+
+/* Asegurar buena transición visual */
+.dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Galería personalizada */
+.galeria-img {
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .galeria-img {
+        max-height: 400px;
+    }
+}

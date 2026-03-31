@@ -1,0 +1,127 @@
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@using System.Globalization
+
+@{
+    ViewData["Title"] = L["Title_Contact"];
+}
+
+<!-- Hero -->
+<section class="contact-hero text-white text-center py-5 mb-4" style="background: linear-gradient(to right, #1e3c72, #2a5298);">
+    <div class="container">
+        <h1 class="display-4 fw-bold" data-aos="fade-down">@L["Contact_Heading"]</h1>
+        <p class="lead" data-aos="fade-up">@L["Contact_Lead"]</p>
+    </div>
+</section>
+
+<!-- Formulario -->
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+
+            @if (ViewData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" role="alert">@ViewData["SuccessMessage"]</div>
+            }
+            @if (ViewData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">@ViewData["ErrorMessage"]</div>
+            }
+
+            <div class="card border-0 shadow rounded-4 p-4 bg-light">
+                <h3 class="text-center mb-4">@L["Contact_Form_Title"]</h3>
+
+                <form asp-controller="Contacto" asp-action="Index" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <div class="mb-4">
+                        <label for="Nombre" class="form-label">@L["Label_FullName"]</label>
+                        <input type="text" name="Nombre" class="form-control form-control-lg rounded-3" placeholder="@L["Contact_Placeholder_FullName"]" required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Email" class="form-label">@L["Label_Email"]</label>
+                        <input type="email" name="Email" class="form-control form-control-lg rounded-3" placeholder="@L["Contact_Placeholder_Email"]" required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Asunto" class="form-label">@L["Label_Subject"]</label>
+                        <input type="text" name="Asunto" class="form-control form-control-lg rounded-3" placeholder="@L["Contact_Placeholder_Subject"]" required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Mensaje" class="form-label">@L["Label_Message"]</label>
+                        <textarea id="Mensaje"
+                                  name="Mensaje"
+                                  class="form-control form-control-lg rounded-3"
+                                  rows="5"
+                                  placeholder="@(L["Contact_Placeholder_Message"])"
+                                  aria-label="@(L["Label_Message"])"
+                                  required></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+                        <button type="submit" class="btn btn-primary px-4">@L["Btn_SendMessage"]</button>
+                        <button type="reset" class="btn btn-outline-secondary px-4">@L["Btn_Clear"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de contacto directo -->
+    <div class="row mt-5 justify-content-center text-center g-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-md-4">
+            <div class="bg-white shadow rounded-4 p-4 h-100">
+                <i class="bi bi-envelope-paper-heart fs-1 text-primary mb-3"></i>
+                <h5 class="fw-bold">@L["Label_Email"]</h5>
+                <p class="text-muted">concierge@costarica.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-white shadow rounded-4 p-4 h-100">
+                <i class="bi bi-telephone-inbound-fill fs-1 text-success mb-3"></i>
+                <h5 class="fw-bold">@L["Label_Phone"]</h5>
+                <p class="text-muted">+506 8888-8888</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-white shadow rounded-4 p-4 h-100">
+                <i class="bi bi-geo-alt fs-1 text-danger mb-3"></i>
+                <h5 class="fw-bold">@L["Contact_Location_Title"]</h5>
+                <p class="text-muted">San José, Costa Rica</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mapa Google -->
+    <div class="mt-5" data-aos="fade-up">
+        <h3 class="text-center mb-4">@L["Contact_FindUs_Title"]</h3>
+        <div class="ratio ratio-16x9 shadow rounded">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0270097388086!2d-84.09072432575315!3d9.92806969018001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e2c85c2b6e55%3A0x945958b29273cc64!2sSan%20Jos%C3%A9%2C%20Costa%20Rica!5e0!3m2!1ses-419!2scr!4v1620323877486!5m2!1ses-419!2scr"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Redes sociales flotantes -->
+<div class="position-fixed top-50 end-0 translate-middle-y pe-2 z-index-3">
+    <div class="d-flex flex-column gap-2">
+        <a href="#" class="btn btn-outline-light bg-primary rounded-circle shadow" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="btn btn-outline-light bg-danger rounded-circle shadow" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="btn btn-outline-light bg-success rounded-circle shadow" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+

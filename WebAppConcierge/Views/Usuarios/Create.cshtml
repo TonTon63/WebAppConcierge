@@ -1,0 +1,112 @@
+﻿@model WebAppConcierge.Models.Usuario
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["Register_Title"];
+    var roles = (List<(int Id, string Name)>)ViewBag.Roles;
+}
+
+<div class="container py-5" style="max-width: 700px;">
+    <div class="card shadow-lg rounded-4 border-0">
+        <div class="card-body p-5">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold"><i class="bi bi-person-plus-fill me-2 text-primary"></i>@L["Nav_Register"]</h2>
+                <p class="text-muted">@L["Register_Lead"]</p>
+            </div>
+
+            <form asp-action="Create" method="post">
+                <div class="form-floating mb-3">
+                    <input asp-for="TC_Correo_Electronico" class="form-control"
+                           placeholder="@(L["Placeholder_Email"])"
+                           aria-label="@(L["Label_Email"])" />
+                    <label asp-for="TC_Correo_Electronico">@L["Label_Email"]</label>
+                    <span asp-validation-for="TC_Correo_Electronico" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="TC_Contrasena" type="password" class="form-control"
+                           placeholder="@(L["Placeholder_Password"])"
+                           aria-label="@(L["Label_Password"])" />
+                    <label asp-for="TC_Contrasena">@L["Label_Password"]</label>
+                    <span asp-validation-for="TC_Contrasena" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="TC_Nombre" class="form-control"
+                           placeholder="@(L["Placeholder_FirstName"])"
+                           aria-label="@(L["Label_FirstName"])" />
+                    <label asp-for="TC_Nombre">@L["Label_FirstName"]</label>
+                    <span asp-validation-for="TC_Nombre" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="TC_Apellido" class="form-control"
+                           placeholder="@(L["Placeholder_LastName"])"
+                           aria-label="@(L["Label_LastName"])" />
+                    <label asp-for="TC_Apellido">@L["Label_LastName"]</label>
+                    <span asp-validation-for="TC_Apellido" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="TC_Cedula" class="form-control"
+                           placeholder="@(L["Placeholder_IdNumber"])"
+                           aria-label="@(L["Label_IdNumber"])" />
+                    <label asp-for="TC_Cedula">@L["Label_IdNumber"]</label>
+                    <span asp-validation-for="TC_Cedula" class="text-danger small"></span>
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">@L["Label_Role"]</label>
+                        <select name="selectedRoleId" class="form-select" required aria-label="@(L["Label_Role"])">
+                            <option value="">@L["Placeholder_SelectRole"]</option>
+                            @foreach (var r in roles)
+                            {
+                                <option value="@r.Id">@r.Name</option>
+                            }
+                        </select>
+                    </div>
+                }
+
+                <div class="form-floating mb-4">
+                    <input asp-for="TC_Telefono" class="form-control"
+                           placeholder="@(L["Placeholder_Phone"])"
+                           aria-label="@(L["Label_Phone"])" />
+                    <label asp-for="TC_Telefono">@L["Label_Phone"]</label>
+                    <span asp-validation-for="TC_Telefono" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-check-circle-fill me-1"></i> @L["Btn_CreateUser"]
+                    </button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-arrow-left-circle me-1"></i> @L["Btn_Cancel"]
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var err = '@Html.Raw(TempData["ErrorMessage"])';
+            if (err) {
+                Swal.fire({ icon: 'error', title: '@(L["Alert_ErrorTitle"])', text: err });
+            }
+
+            var ok = '@Html.Raw(TempData["SuccessMessage"])';
+            if (ok) {
+                Swal.fire({ icon: 'success', title: '@(L["Alert_SuccessTitle"])', text: ok });
+            }
+        });
+    </script>
+}
+
+

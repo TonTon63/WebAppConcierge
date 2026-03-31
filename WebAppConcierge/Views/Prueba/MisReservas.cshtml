@@ -1,0 +1,77 @@
+﻿@model List<WebAppConcierge.Models.Reserva>
+
+@{
+    ViewData["Title"] = L["Reservations_MyPage_Title"];
+}
+
+    <section class="container py-5">
+
+        <!-- Botón estilizado para volver -->
+        <div class="d-flex justify-content-end mb-4">
+            <a asp-controller="Prueba" asp-action="Reservas"
+               class="btn text-white fw-semibold shadow"
+               style="background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; border-radius: 0.5rem;">
+                <i class="bi bi-arrow-left-circle me-2"></i> @L["Btn_BackToReservations"]
+            </a>
+        </div>
+
+    <h2 class="text-center mb-4">@L["Reservations_MyPage_Title"]</h2>
+
+        @if (TempData["ReservaSuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["ReservaSuccessMessage"]</div>
+        }
+
+        @if (TempData["ReservaErrorMessage"] != null)
+        {
+            <div class="alert alert-danger text-center">@TempData["ReservaErrorMessage"]</div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info text-center">No tienes reservas registradas.</div>
+        }
+        else
+        {
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                    <th>@L["Label_Date"]</th>
+                    <th>@L["Label_Time"]</th>
+                    <th>@L["Nav_Services"]</th>
+                    <th>@L["Table_Notification"]</th>
+                    <th>@L["Table_Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var reserva in Model)
+                    {
+                        <tr>
+                            <td>@reserva.Fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@reserva.Hora</td>
+                            <td>
+                                @foreach (var servicio in reserva.Servicios?.Split(", ") ?? new string[0])
+                                {
+                                    <span class="badge bg-primary me-1">@servicio</span>
+                                }
+                            </td>
+                            <td class="text-center">@((reserva.NotificarInterno) ? "Sí" : "No")</td>
+                            <td class="text-center">
+                                <a asp-action="Modificar" asp-route-id="@reserva.Id" class="btn btn-sm btn-warning me-1">
+                                <i class="bi bi-pencil"></i>  @L["Btn_Edit"]
+                                </a>
+
+                            <form asp-action="Cancelar" asp-route-id="@reserva.Id" method="post" class="d-inline" onsubmit="return confirm('@L["Confirm_CancelBooking"]');">
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="bi bi-x-circle"></i> @L["Btn_Cancel"]
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </section>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />

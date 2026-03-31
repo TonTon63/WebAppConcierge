@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Centro de Reportes";
+}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold"><i class="bi bi-bar-chart-line-fill me-2"></i>Centro de Reportes</h2>
+        <p class="text-muted">Seleccione el reporte que desea consultar o exportar</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-person-check-fill me-2"></i>Usuarios Activos</h5>
+                    <p class="card-text">Muestra todos los usuarios actualmente activos en el sistema.</p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="UsuariosActivos" class="btn btn-primary btn-sm">Ver</a>
+                        <a asp-action="ExportarUsuariosActivos" class="btn btn-outline-success btn-sm">Exportar Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-person-x-fill me-2"></i>Usuarios Inactivos</h5>
+                    <p class="card-text">Lista de usuarios que han sido desactivados.</p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="UsuariosInactivos" class="btn btn-primary btn-sm">Ver</a>
+                        <a asp-action="ExportarUsuariosInactivos" class="btn btn-outline-success btn-sm">Exportar Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-person-badge-fill me-2"></i>Usuarios por Rol</h5>
+                    <p class="card-text">Agrupa usuarios activos según su rol (Administrador o Usuario).</p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="UsuariosPorRol" class="btn btn-primary btn-sm">Ver</a>
+                        <a asp-action="ExportarUsuariosPorRol" class="btn btn-outline-success btn-sm">Exportar Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-pie-chart-fill me-2"></i>Cantidad de Usuarios por Rol</h5>
+                    <p class="card-text">Muestra un resumen de la cantidad de usuarios por cada tipo de rol.</p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="CantidadUsuariosPorRol" class="btn btn-primary btn-sm">Ver</a>
+                        <a asp-action="ExportarCantidadUsuariosPorRol" class="btn btn-outline-success btn-sm">Exportar Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

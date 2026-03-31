@@ -1,0 +1,192 @@
+﻿@model WebAppConcierge.Models.Reserva
+@using Microsoft.AspNetCore.Html
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["Reservations_EditPage_Title"];
+    var seleccionados = Model.Servicios?.Split(", ").Select(s => s.Trim()).ToHashSet(StringComparer.OrdinalIgnoreCase)
+                     ?? new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+}
+
+@functions {
+    IHtmlContent Card(string pais, string id, string nombre, string img, string desc, bool isChecked)
+    {
+        var checkedAttr = isChecked ? "checked" : "";
+        var imagePath = Url.Content($"~/images/ConciergeServices/{img}");
+
+        var html = $@"
+        <div class=""col service-card"" data-pais=""{pais}"">
+            <div class=""card h-100 shadow-sm border-0"">
+                <img src=""{imagePath}"" class=""card-img-top"" alt=""{nombre}"">
+                <div class=""card-body"">
+                    <div class=""form-check"">
+                        <input class=""form-check-input"" type=""checkbox"" name=""Servicios"" value=""{nombre}"" id=""{id}"" {checkedAttr} />
+                        <label class=""form-check-label fw-semibold"" for=""{id}"">{nombre}</label>
+                        <p class=""text-muted small mb-0"">{desc}</p>
+                    </div>
+                </div>
+            </div>
+        </div>";
+        return new HtmlString(html);
+    }
+}
+
+<section class="container py-5" style="max-width: 900px;">
+    <!-- Botón estilizado para volver -->
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-controller="Prueba" asp-action="Reservas"
+           class="btn text-white fw-semibold shadow"
+           style="background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; border-radius: 0.5rem;">
+            <i class="bi bi-arrow-left-circle me-2"></i> @L["Btn_BackToReservations"]
+        </a>
+    </div>
+
+    <div class="card shadow-lg rounded-4 border-0" data-aos="zoom-in">
+        <div class="card-header bg-warning text-dark rounded-top-4">
+            <h4 class="mb-0"><i class="bi bi-pencil-square me-2"></i>@L["Reservations_Edit_Title"]</h4>
+        </div>
+        <div class="card-body px-5 py-4">
+            <form asp-action="Actualizar" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" id="Pais" name="Pais" />
+
+                <!-- País -->
+                <div class="mb-4">
+                    <label for="PaisSelect" class="form-label fw-semibold">@L["Label_Country"]</label>
+                    <select id="PaisSelect" class="form-select" required>
+                        <option value="" selected disabled>@L["Services_SelectCountry_Placeholder"]</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Turks and Caicos">Turks and Caicos</option>
+                        <option value="México (Playa del Carmen / Tulum)">@L["Services_MX_Title"]</option>
+                        <option value="Estados Unidos (Miami)">@L["Services_USA_Title"]</option>
+                        <option value="Bahamas">Bahamas</option>
+                    </select>
+                    <small class="text-muted">@L["Services_FilterCountry_Hint"]</small>
+                </div>
+
+                <!-- Servicios -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">@L["Label_AvailableServices"]</label>
+                    <div id="gridServicios" class="row row-cols-1 row-cols-md-3 g-4">
+
+                        @* ===== COSTA RICA ===== *@
+                        @Card("Costa Rica", "cr-transport", @L["CS_LuxuryGround_Title"], "transport.jpg", @L["Services_LuxuryTransport_Desc"], seleccionados.Contains("Transporte terrestre de lujo"))
+                        @Card("Costa Rica", "cr-jet", @L["CS_PrivateJetHeli_Title"], "jet.jpg", @L["CS_PrivateJetHeli_Desc"], seleccionados.Contains("Jet privado y helicóptero"))
+                        @Card("Costa Rica", "cr-heli", @L["Services_Helicopter_Title"], "helicopter.jpg", @L["Services_Helicopter_Desc"], seleccionados.Contains("Helicóptero"))
+                        @Card("Costa Rica", "cr-yacht", @L["CS_YachtCharter_Title"], "yacht.jpg", @L["CS_YachtCharter_Desc"], seleccionados.Contains("Alquiler de yates privados"))
+                        @Card("Costa Rica", "cr-cat", @L["Services_SailingCatamaran_Title"], "catamaran.jpg", @L["Services_SailingCatamaran_Desc"], seleccionados.Contains("Catamarán de vela"))
+                        @Card("Costa Rica", "cr-chef", @L["CS_PrivateChefs_Title"], "chef.jpg", @L["CS_PrivateChefs_Desc"], seleccionados.Contains("Chefs privados"))
+                        @Card("Costa Rica", "cr-groc", @L["CS_ShoppingProvision_Title"], "groceries.jpg", @L["CS_ShoppingProvision_Desc"], seleccionados.Contains("Compras y abastecimiento"))
+                        @Card("Costa Rica", "cr-fast", @L["CS_VIPFastTrack_Title"], "fasttrack.jpg", @L["CS_VIPFastTrack_Desc"], seleccionados.Contains("VIP Fast Track"))
+                        @Card("Costa Rica", "cr-flw", @L["Services_FloralDecoration_Title"], "flowers.jpg", @L["Services_FloralDecoration_Desc"], seleccionados.Contains("Decoración y Arreglos Florales"))
+                        @Card("Costa Rica", "cr-spanish", @L["Services_SpanishTeacher_Title"], "spanish.jpg", @L["Services_SpanishTeacher_Desc"], seleccionados.Contains("Profesor de Español"))
+                        @Card("Costa Rica", "cr-greet", @L["Services_ReceptionWelcome_Title"], "greet.jpg", @L["Services_ReceptionWelcome_Desc"], seleccionados.Contains("Recepción y Bienvenida"))
+                        @Card("Costa Rica", "cr-insp", @L["Services_PropertyInspection_Title"], "inspection.jpg", @L["Services_PropertyInspection_Desc"], seleccionados.Contains("Inspección de Propiedad"))
+                        @Card("Costa Rica", "cr-photo", @L["Services_ProfessionalPhotography_Title"], "photography.jpg", @L["Services_ProfessionalPhotography_Desc"], seleccionados.Contains("Fotografía Profesional"))
+                        @Card("Costa Rica", "cr-bar", @L["Services_BartenderMixologist_Title"], "bartender.jpg", @L["Services_BartenderMixologist_Desc"], seleccionados.Contains("Servicios de Bartender y Mixólogo"))
+
+                        @* ===== TURKS AND CAICOS ===== *@
+                        @Card("Turks and Caicos", "tc-transport", @L["CS_LuxuryGround_Title"], "transport.jpg", @L["Services_LuxuryTransport_Desc"], seleccionados.Contains("Transporte terrestre de lujo"))
+                        @Card("Turks and Caicos", "tc-yacht", @L["CS_YachtCharter_Title"], "yacht.jpg", @L["CS_YachtCharter_Desc"], seleccionados.Contains("Alquiler de yates privados"))
+                        @Card("Turks and Caicos", "tc-chef", @L["CS_PrivateChefs_Title"], "chef.jpg", @L["CS_PrivateChefs_Desc"], seleccionados.Contains("Chefs privados"))
+                        @Card("Turks and Caicos", "tc-groc", @L["CS_ShoppingProvision_Title"], "groceries.jpg", @L["CS_ShoppingProvision_Desc"], seleccionados.Contains("Compras y abastecimiento"))
+                        @Card("Turks and Caicos", "tc-spa", @L["CS_InHomeSpa_Title"], "spa.jpg", @L["CS_InHomeSpa_Desc"], seleccionados.Contains("Terapia de spa en el hogar"))
+                        @Card("Turks and Caicos", "tc-butler", @L["Services_Butler_Title"], "butler.jpg", @L["Services_Butler_Desc"], seleccionados.Contains("Mayordomo"))
+                        @Card("Turks and Caicos", "tc-fast", @L["CS_VIPFastTrack_Title"], "fasttrack.jpg", @L["CS_VIPFastTrack_Desc"], seleccionados.Contains("VIP Fast Track"))
+                        @Card("Turks and Caicos", "tc-villa", @L["CS_VillaRental_Title"], "villa.jpg", @L["Services_VillaRental_Desc"], seleccionados.Contains("Alquiler de villas"))
+
+                        @* ===== MÉXICO (PDC/Tulum) ===== *@
+                        @Card("México (Playa del Carmen / Tulum)", "mx-transport", @L["CS_LuxuryGround_Title"], "transport.jpg", @L["Services_LuxuryTransport_Desc"], seleccionados.Contains("Transporte terrestre de lujo"))
+                        @Card("México (Playa del Carmen / Tulum)", "mx-yacht", @L["CS_YachtCharter_Title"], "yacht.jpg", @L["CS_YachtCharter_Desc"], seleccionados.Contains("Yate privado"))
+                        @Card("México (Playa del Carmen / Tulum)", "mx-tours", @L["CS_PrivateTours_Title"], "tours.jpg", @L["Services_PrivateTours_Desc_MX"], seleccionados.Contains("Tours privados"))
+                        @Card("México (Playa del Carmen / Tulum)", "mx-villa", @L["CS_VillaRental_Title"], "villa.jpg", @L["Services_VillaRental_Desc_MX"], seleccionados.Contains("Alquiler de villas"))
+
+                        @* ===== ESTADOS UNIDOS (Miami) ===== *@
+                        @Card("Estados Unidos (Miami)", "us-transport", @L["CS_LuxuryGround_Title"], "transport.jpg", @L["Services_LuxuryTransport_Desc"], seleccionados.Contains("Transporte terrestre de lujo"))
+                        @Card("Estados Unidos (Miami)", "us-tours", @L["CS_PrivateTours_Title"], "tours.jpg", @L["Services_PrivateTours_Desc_US"], seleccionados.Contains("Tours privados"))
+                        @Card("Estados Unidos (Miami)", "us-rest", @L["CS_RestaurantRes_Title"], "restaurant.jpg", @L["CS_RestaurantRes_Desc"], seleccionados.Contains("Reservas de restaurantes"))
+
+                        @* ===== BAHAMAS ===== *@
+                        @Card("Bahamas", "bs-villa", @L["CS_VillaRental_Title"], "villa.jpg", @L["Services_VillaRental_Desc_BS"], seleccionados.Contains("Alquiler de villas"))
+                        @Card("Bahamas", "bs-transport", @L["CS_LuxuryGround_Title"], "transport.jpg", @L["Services_LuxuryTransport_Desc"], seleccionados.Contains("Transporte terrestre de lujo"))
+                        @Card("Bahamas", "bs-spa", @L["CS_InHomeSpa_Title"], "spa.jpg", @L["CS_InHomeSpa_Desc"], seleccionados.Contains("Terapia de spa en el hogar"))
+                        @Card("Bahamas", "bs-chef", @L["CS_PrivateChefs_Title"], "chef.jpg", @L["CS_PrivateChefs_Desc"], seleccionados.Contains("Chefs privados"))
+                        @Card("Bahamas", "bs-fast", @L["CS_VIPFastTrack_Title"], "fasttrack.jpg", @L["CS_VIPFastTrack_Desc"], seleccionados.Contains("VIP Fast Track"))
+                        @Card("Bahamas", "bs-groc", @L["CS_ShoppingProvision_Title"], "groceries.jpg", @L["CS_ShoppingProvision_Desc"], seleccionados.Contains("Compras y abastecimiento"))
+
+                    </div>
+
+                    <small class="text-muted d-block mt-2">
+                        @L["Services_SelectDesired_Hint"]
+                    </small>
+                </div>
+
+                <!-- Fecha y hora -->
+                <div class="row mt-2">
+                    <div class="col-md-6 mb-4">
+                        <label asp-for="Fecha" class="form-label fw-semibold">@L["Label_Date"]</label>
+                        <input asp-for="Fecha" type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label asp-for="Hora" class="form-label fw-semibold">@L["Label_Time"]</label>
+                        <input asp-for="Hora" type="time" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Notificación interna -->
+                <div class="form-check mb-4">
+                    <input asp-for="NotificarInterno" class="form-check-input" />
+                    <label asp-for="NotificarInterno" class="form-check-label fw-semibold">@L["Reservations_SendInternalNotification"]</label>
+                </div>
+
+                <!-- Botones -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-check-circle-fill me-1"></i> @L["Btn_SaveChanges"]
+                    </button>
+                    <a asp-action="MisReservas" class="btn btn-outline-danger px-4">
+                        <i class="bi bi-x-circle me-1"></i> @L["Btn_Cancel"]
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        AOS.init();
+
+        const paisSelect = document.getElementById('PaisSelect');
+        const hiddenPais = document.getElementById('Pais');
+        const cards = document.querySelectorAll('.service-card');
+
+               function filtrarPorPais(pais) {
+            hiddenPais.value = pais || '';
+            cards.forEach(card => {
+                const c = card.getAttribute('data-pais');
+                const visible = (pais && c === pais);
+                card.style.display = visible ? 'block' : 'none';
+
+                // ⛔ Solo los visibles deben tener el name="Servicios"
+                const checkbox = card.querySelector("input[type='checkbox']");
+                if (checkbox) {
+                    if (visible) {
+                        checkbox.setAttribute('name', 'Servicios');
+                    } else {
+                        checkbox.removeAttribute('name');
+                    }
+                }
+            });
+        }
+
+        // Oculta todo hasta que elija país
+        filtrarPorPais('');
+
+        paisSelect.addEventListener('change', function () {
+            filtrarPorPais(this.value);
+        });
+    </script>
+}

@@ -1,0 +1,111 @@
+﻿@model List<WebAppConcierge.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-people-fill me-2"></i>Usuarios Registrados</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-person-plus-fill me-1"></i>Nuevo Usuario
+        </a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover shadow-sm rounded-3 align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electrónico</th>
+                        <th>Rol</th>
+                        <th class="text-center">Activo</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model)
+                    {
+                        <tr>
+                            <td>@usuario.TN_Id_Usuario</td>
+                            <td>@usuario.TC_Nombre</td>
+                            <td>@usuario.TC_Apellido</td>
+                            <td>@usuario.TC_Correo_Electronico</td>
+                            <td>
+                                @if (usuario.NombreRol == "Administrador")
+                                {
+                                    <span class="badge bg-danger">@usuario.NombreRol</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@usuario.NombreRol</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                @if (usuario.TB_Activo)
+                                {
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                }
+                                else
+                                {
+                                    <i class="bi bi-x-circle-fill text-danger"></i>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <a asp-action="Details" asp-route-id="@usuario.TN_Id_Usuario" class="btn btn-outline-info btn-sm me-1" title="Ver Detalles">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@usuario.TN_Id_Usuario" class="btn btn-outline-warning btn-sm me-1" title="Editar">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@usuario.TN_Id_Usuario" class="btn btn-outline-danger btn-sm" title="Eliminar">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            <i class="bi bi-info-circle me-1"></i>No hay usuarios registrados aún.
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const success = @Html.Raw(Json.Serialize(TempData["SuccessMessage"]));
+            const error = @Html.Raw(Json.Serialize(TempData["ErrorMessage"]));
+
+            if (success && success !== "Identificado Correctamente.") {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Éxito!',
+                    text: success,
+                    confirmButtonColor: '#198754'
+                });
+            }
+
+            if (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: error,
+                    confirmButtonColor: '#dc3545'
+                });
+            }
+        });
+    </script>
+}
+
+

@@ -1,0 +1,102 @@
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> L
+@using System.Globalization
+﻿@{
+    ViewData["Title"] = L["Title_Locations"];
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .destination-card {
+        transition: transform 0.3s ease;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .destination-card:hover {
+            transform: scale(1.03);
+        }
+
+    .destination-img {
+        height: 220px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-content {
+        margin-top: 10px;
+    }
+
+        .card-content ul {
+            padding-left: 20px;
+        }
+
+        .card-content li {
+            margin-bottom: 8px;
+        }
+</style>
+
+<section class="container py-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="fw-bold text-warning">@L["Locations_Intro_Title"]</h2>
+        <p class="fs-5">@L["Locations_Intro_Lead"]</p>
+    </div>
+
+    <div class="row mb-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <select id="regionFilter" class="form-select">
+                <option value="all">@L["Loc_Filter_ShowAll"]</option>
+                <option value="america-central">@L["Loc_Filter_CentralAmerica"]</option>
+                <option value="caribe">@L["Loc_Filter_Caribbean"]</option>
+                <option value="usa">@L["Loc_Filter_USA"]</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row g-4" id="destinosContainer">
+        @{
+            var destinos = new[] {
+        new { Region="america-central", Key="CR",           Imagen="/images/locations/costa-rica.jpg" },
+        new { Region="caribe",          Key="RivieraMaya",  Imagen="/images/locations/riviera-maya.jpg" },
+        new { Region="caribe",          Key="Bahamas",      Imagen="/images/locations/bahamas.jpg" },
+        new { Region="caribe",          Key="TurksCaicos",  Imagen="/images/locations/turks.jpg" },
+        new { Region="usa",             Key="Miami",        Imagen="/images/locations/miami.jpg" }
+        };
+        }
+
+        @foreach (var destino in destinos)
+        {
+            <div class="col-md-6 col-lg-4 destino-item" data-region="@destino.Region">
+                <div class="card destination-card shadow h-100">
+                    <img src="@destino.Imagen"
+                         class="destination-img"
+                         alt="@(L[$"Locations_{destino.Key}_Alt"])">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@L[$"Locations_{destino.Key}_Title"]</h5>
+                        <p class="card-text">@L[$"Locations_{destino.Key}_Summary"]</p>
+                        <div class="card-content">
+                            @Html.Raw(L[$"Locations_{destino.Key}_Content"])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</section>
+
+<script>
+    document.getElementById('regionFilter').addEventListener('change', function () {
+        const selected = this.value;
+        const items = document.querySelectorAll('.destino-item');
+        items.forEach(el => {
+            el.style.display = (selected === 'all' || el.getAttribute('data-region') === selected) ? 'block' : 'none';
+        });
+    });
+</script>

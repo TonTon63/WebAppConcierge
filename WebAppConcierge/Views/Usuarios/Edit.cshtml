@@ -1,0 +1,65 @@
+﻿@model WebAppConcierge.Models.Usuario
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="container py-5" style="max-width: 600px;">
+    <div class="card shadow-lg rounded-4 border-0" data-aos="zoom-in">
+        <div class="card-header bg-warning text-dark rounded-top-4">
+            <h4 class="mb-0"><i class="bi bi-pencil-fill me-2"></i>Editar Usuario</h4>
+        </div>
+        <div class="card-body px-5 py-4">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="TN_Id_Usuario" />
+
+                <div class="mb-3">
+                    <label asp-for="TC_Nombre" class="form-label fw-semibold">Nombre</label>
+                    <input asp-for="TC_Nombre" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="TC_Apellido" class="form-label fw-semibold">Apellido</label>
+                    <input asp-for="TC_Apellido" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="TC_Telefono" class="form-label fw-semibold">Teléfono</label>
+                    <input asp-for="TC_Telefono" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Correo</label>
+                    <input class="form-control" value="@Model.TC_Correo_Electronico" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Cédula</label>
+                    <input class="form-control" value="@Model.TC_Cedula" readonly />
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save me-1"></i> Guardar Cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const success = '@TempData["SuccessMessage"]';
+        if (success) {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: success
+            });
+        }
+    </script>
+}

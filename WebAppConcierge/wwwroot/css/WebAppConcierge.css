@@ -1,0 +1,22 @@
+﻿
+.carousel-caption {
+    background: none !important;
+}
+
+.caption-bg {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    text-align: center;
+    max-width: 80%;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+body {
+    background-color: black !important;
+    color: white !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, a, span, div {
+    color: #fff !important;
+}

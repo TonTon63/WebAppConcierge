@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nav_Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Nav_Services" xml:space="preserve">
+    <value>Servicios</value>
+  </data>
+  <data name="Nav_About" xml:space="preserve">
+    <value>Sobre Nosotros</value>
+  </data>
+  <data name="Nav_FAQ" xml:space="preserve">
+    <value>Preguntas Frecuentes</value>
+  </data>
+  <data name="Nav_Contact" xml:space="preserve">
+    <value>Contáctenos</value>
+  </data>
+  <data name="Nav_Locations" xml:space="preserve">
+    <value>Localizaciones</value>
+  </data>
+  <data name="Nav_Panel" xml:space="preserve">
+    <value>Panel</value>
+  </data>
+  <data name="Nav_MyBookings" xml:space="preserve">
+    <value>Mis Reservas</value>
+  </data>
+  <data name="Nav_Register" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="Nav_Login" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="Nav_Logout" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Nav_Admin" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="Nav_Users" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="Nav_Book" xml:space="preserve">
+    <value>Reservar</value>
+  </data>
+  <data name="Nav_Reports" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="Nav_Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Btn_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Btn_Back" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="Btn_Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Btn_Filter" xml:space="preserve">
+    <value>Filtrar</value>
+  </data>
+  <data name="Btn_Clear" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Btn_Book" xml:space="preserve">
+    <value>Reservar</value>
+  </data>
+  <data name="Btn_Update" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Btn_Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="Btn_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Btn_Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="Btn_Next" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="Btn_Previous" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Btn_Upload" xml:space="preserve">
+    <value>Subir</value>
+  </data>
+  <data name="Btn_Download" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="Btn_Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="Btn_Import" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="Btn_Continue" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
+  <data name="Btn_Send" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Btn_Apply" xml:space="preserve">
+    <value>Aplicar</value>
+  </data>
+  <data name="Btn_Reset" xml:space="preserve">
+    <value>Restablecer</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Label_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Label_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Label_FullName" xml:space="preserve">
+    <value>Nombre Completo</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="Label_Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Label_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Label_ConfirmPassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="Label_Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Label_Section" xml:space="preserve">
+    <value>Sección</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="Label_Time" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Label_Service" xml:space="preserve">
+    <value>Servicio</value>
+  </data>
+  <data name="Label_Employee" xml:space="preserve">
+    <value>Empleado</value>
+  </data>
+  <data name="Label_Customer" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Label_Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Label_Username" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Label_IdNumber" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="Label_Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="Label_City" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="Label_Province" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+  <data name="Label_PostalCode" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="Label_Country" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="Label_Price" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="Label_Quantity" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="Label_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Label_Category" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Th_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Th_User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Th_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Th_IdNumber" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="Th_Email" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="Th_Section" xml:space="preserve">
+    <value>Sección</value>
+  </data>
+  <data name="Th_Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Th_Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Th_Active" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="Th_Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Title_Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Title_Services" xml:space="preserve">
+    <value>Servicios</value>
+  </data>
+  <data name="Title_About" xml:space="preserve">
+    <value>Sobre Nosotros</value>
+  </data>
+  <data name="Title_FAQ" xml:space="preserve">
+    <value>Preguntas Frecuentes</value>
+  </data>
+  <data name="Title_Contact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Title_Locations" xml:space="preserve">
+    <value>Localizaciones</value>
+  </data>
+  <data name="Title_Panel" xml:space="preserve">
+    <value>Panel</value>
+  </data>
+  <data name="Title_MyBookings" xml:space="preserve">
+    <value>Mis Reservas</value>
+  </data>
+  <data name="Title_Users" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="Title_Login" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="Title_Register" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="Title_ForgotPassword" xml:space="preserve">
+    <value>Recuperar Contraseña</value>
+  </data>
+  <data name="Title_ResetPassword" xml:space="preserve">
+    <value>Restablecer Contraseña</value>
+  </data>
+  <data name="Title_CreateUser" xml:space="preserve">
+    <value>Crear Usuario</value>
+  </data>
+  <data name="Title_EditUser" xml:space="preserve">
+    <value>Editar Usuario</value>
+  </data>
+  <data name="Title_ListUsers" xml:space="preserve">
+    <value>Listado de Usuarios</value>
+  </data>
+  <data name="Title_CreateBooking" xml:space="preserve">
+    <value>Crear Reserva</value>
+  </data>
+  <data name="Title_EditBooking" xml:space="preserve">
+    <value>Editar Reserva</value>
+  </data>
+  <data name="Title_BookingHistory" xml:space="preserve">
+    <value>Historial de Reservas</value>
+  </data>
+  <data name="Title_PendingBookings" xml:space="preserve">
+    <value>Reservas Pendientes</value>
+  </data>
+  <data name="Msg_Saved" xml:space="preserve">
+    <value>Guardado correctamente.</value>
+  </data>
+  <data name="Msg_Updated" xml:space="preserve">
+    <value>Actualizado correctamente.</value>
+  </data>
+  <data name="Msg_Deleted" xml:space="preserve">
+    <value>Eliminado correctamente.</value>
+  </data>
+  <data name="Msg_Error" xml:space="preserve">
+    <value>Ha ocurrido un error.</value>
+  </data>
+  <data name="Msg_ConfirmDelete" xml:space="preserve">
+    <value>¿Seguro que deseas eliminar este registro?</value>
+  </data>
+  <data name="Msg_Required" xml:space="preserve">
+    <value>Este campo es obligatorio.</value>
+  </data>
+  <data name="Msg_Invalid" xml:space="preserve">
+    <value>Valor inválido.</value>
+  </data>
+  <data name="Msg_NotFound" xml:space="preserve">
+    <value>No se encontró el recurso solicitado.</value>
+  </data>
+  <data name="Msg_AccessDenied" xml:space="preserve">
+    <value>Acceso denegado.</value>
+  </data>
+  <data name="Msg_LoginRequired" xml:space="preserve">
+    <value>Debes iniciar sesión para continuar.</value>
+  </data>
+  <data name="Msg_BookingCreated" xml:space="preserve">
+    <value>Reserva creada correctamente.</value>
+  </data>
+  <data name="Msg_BookingUpdated" xml:space="preserve">
+    <value>Reserva actualizada correctamente.</value>
+  </data>
+  <data name="Msg_BookingCanceled" xml:space="preserve">
+    <value>Reserva cancelada.</value>
+  </data>
+  <data name="Msg_NoResults" xml:space="preserve">
+    <value>No se encontraron resultados.</value>
+  </data>
+  <data name="Msg_Loading" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="Msg_AreYouSure" xml:space="preserve">
+    <value>¿Estás seguro?</value>
+  </data>
+  <data name="Msg_Success" xml:space="preserve">
+    <value>Operación realizada con éxito.</value>
+  </data>
+  <data name="Msg_Failure" xml:space="preserve">
+    <value>La operación falló.</value>
+  </data>
+  <data name="Val_Required" xml:space="preserve">
+    <value>El campo {0} es obligatorio.</value>
+  </data>
+  <data name="Val_Email" xml:space="preserve">
+    <value>Ingresa un correo electrónico válido.</value>
+  </data>
+  <data name="Val_PasswordLength" xml:space="preserve">
+    <value>La contraseña debe tener al menos {0} caracteres.</value>
+  </data>
+  <data name="Val_PasswordMismatch" xml:space="preserve">
+    <value>Las contraseñas no coinciden.</value>
+  </data>
+  <data name="Val_Range" xml:space="preserve">
+    <value>El valor debe estar entre {0} y {1}.</value>
+  </data>
+  <data name="Val_DateInvalid" xml:space="preserve">
+    <value>Fecha inválida.</value>
+  </data>
+  <data name="Val_TimeInvalid" xml:space="preserve">
+    <value>Hora inválida.</value>
+  </data>
+  <data name="Val_MinLength" xml:space="preserve">
+    <value>Debe tener al menos {0} caracteres.</value>
+  </data>
+  <data name="Val_MaxLength" xml:space="preserve">
+    <value>Debe tener como máximo {0} caracteres.</value>
+  </data>
+  <data name="Val_PhoneInvalid" xml:space="preserve">
+    <value>Ingresa un teléfono válido.</value>
+  </data>
+  <data name="Val_IdInvalid" xml:space="preserve">
+    <value>Ingresa un número de cédula válido.</value>
+  </data>
+  <data name="Auth_LoginTitle" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Auth_RegisterTitle" xml:space="preserve">
+    <value>Crear cuenta</value>
+  </data>
+  <data name="Auth_ForgotPassword" xml:space="preserve">
+    <value>¿Olvidaste la contraseña?</value>
+  </data>
+  <data name="Auth_RememberMe" xml:space="preserve">
+    <value>Recuérdame</value>
+  </data>
+  <data name="Auth_LogOffConfirm" xml:space="preserve">
+    <value>¿Deseas cerrar sesión?</value>
+  </data>
+  <data name="Auth_LogoutQuestion" xml:space="preserve">
+    <value>¿Deseas finalizar tu sesión?</value>
+  </data>
+  <data name="Lang_Spanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Lang_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Hero_Title" xml:space="preserve">
+    <value>Concierge Costa Rica</value>
+  </data>
+  <data name="Hero_Lead" xml:space="preserve">
+    <value>Tu experiencia personalizada comienza aquí.</value>
+  </data>
+  <data name="Footer_About_Text" xml:space="preserve">
+    <value>Concierge Costa Rica es una empresa de servicios de concierge que nace de la pasión y visión compartida de tres amigos, con el compromiso de brindar experiencias únicas y soluciones personalizadas a nuestros clientes.</value>
+  </data>
+  <data name="Footer_Services_Title" xml:space="preserve">
+    <value>Nuestros servicios</value>
+  </data>
+  <data name="Footer_Service_Villas" xml:space="preserve">
+    <value>Renta de villas</value>
+  </data>
+  <data name="Footer_Service_PrivateChefs" xml:space="preserve">
+    <value>Chefs privados</value>
+  </data>
+  <data name="Footer_Service_Transport" xml:space="preserve">
+    <value>Transporte</value>
+  </data>
+  <data name="Footer_Service_PrivateYachts" xml:space="preserve">
+    <value>Yates privados</value>
+  </data>
+  <data name="Footer_Service_PrivateTours" xml:space="preserve">
+    <value>Tours privados</value>
+  </data>
+  <data name="Footer_Destinations_Title" xml:space="preserve">
+    <value>Destinos</value>
+  </data>
+  <data name="Footer_Destination_CostaRica" xml:space="preserve">
+    <value>Costa Rica</value>
+  </data>
+  <data name="Footer_Destination_RivieraMaya" xml:space="preserve">
+    <value>Riviera Maya, México</value>
+  </data>
+  <data name="Footer_Destination_Bahamas" xml:space="preserve">
+    <value>Bahamas</value>
+  </data>
+  <data name="Footer_Destination_TurksCaicos" xml:space="preserve">
+    <value>Islas Turcas y Caicos</value>
+  </data>
+  <data name="Footer_Destination_UnitedStates" xml:space="preserve">
+    <value>Estados Unidos</value>
+  </data>
+  <data name="Footer_Contact_Title" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Footer_Email_Label" xml:space="preserve">
+    <value>Correo:</value>
+  </data>
+  <data name="Footer_Phone_Label" xml:space="preserve">
+    <value>Teléfono:</value>
+  </data>
+  <data name="Footer_Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Footer_Instagram" xml:space="preserve">
+    <value>Instagram</value>
+  </data>
+  <data name="Footer_AllRightsReserved" xml:space="preserve">
+    <value>Todos los derechos reservados.</value>
+  </data>
+  <data name="Title_ConciergeServices" xml:space="preserve">
+    <value>Servicios Concierge</value>
+  </data>
+  <data name="CS_Heading_Services" xml:space="preserve">
+    <value>Nuestros Servicios Concierge</value>
+  </data>
+  <data name="CS_AboutCompany_Title" xml:space="preserve">
+    <value>Sobre Nuestra Empresa</value>
+  </data>
+  <data name="CS_Service_Airfare_Title" xml:space="preserve">
+    <value>Ayuda en tarifas aéreas</value>
+  </data>
+  <data name="CS_Service_PrivateChef_Title" xml:space="preserve">
+    <value>Chef a domicilio</value>
+  </data>
+  <data name="CS_Service_PrivateTransport_Title" xml:space="preserve">
+    <value>Transporte privado</value>
+  </data>
+  <data name="CS_Service_PrivateYachts_Title" xml:space="preserve">
+    <value>Yates privados</value>
+  </data>
+  <data name="CS_Service_PrivateTours_Title" xml:space="preserve">
+    <value>Tours privados</value>
+  </data>
+  <data name="CS_Service_ReservationsEvents_Title" xml:space="preserve">
+    <value>Reservas y eventos especiales</value>
+  </data>
+  <data name="CS_AboutCompany_P1" xml:space="preserve">
+    <value>Concierge Costa Rica es una empresa de servicios con un compromiso de brindar experiencias únicas y soluciones personalizadas a nuestros clientes.</value>
+  </data>
+  <data name="Contact_Heading" xml:space="preserve">
+    <value>Contáctanos</value>
+  </data>
+  <data name="Contact_Lead" xml:space="preserve">
+    <value>Estaremos encantados de ayudarte a planear tu experiencia perfecta en Costa Rica.</value>
+  </data>
+  <data name="Label_Subject" xml:space="preserve">
+    <value>Asunto</value>
+  </data>
+  <data name="Label_Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="Btn_SendMessage" xml:space="preserve">
+    <value>Enviar Mensaje</value>
+  </data>
+  <data name="Contact_Placeholder_FullName" xml:space="preserve">
+    <value>Ej: Juan Pérez</value>
+  </data>
+  <data name="Contact_Placeholder_Email" xml:space="preserve">
+    <value>Ej: nombre@correo.com</value>
+  </data>
+  <data name="Contact_Placeholder_Subject" xml:space="preserve">
+    <value>Ej: Información sobre tours privados</value>
+  </data>
+  <data name="Loc_Filter_ShowAll" xml:space="preserve">
+    <value>Mostrar todos</value>
+  </data>
+  <data name="Loc_Filter_CentralAmerica" xml:space="preserve">
+    <value>América Central</value>
+  </data>
+  <data name="Loc_Filter_Caribbean" xml:space="preserve">
+    <value>Caribe</value>
+  </data>
+  <data name="Loc_Filter_USA" xml:space="preserve">
+    <value>Estados Unidos</value>
+  </data>
+  <data name="FAQ_Title" xml:space="preserve">
+    <value>Preguntas Frecuentes</value>
+  </data>
+  <data name="FAQ_Lead" xml:space="preserve">
+    <value>Encuentra respuestas a las dudas más comunes sobre nuestros servicios</value>
+  </data>
+  <data name="FAQ_Section_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="About_Team_Heading" xml:space="preserve">
+    <value>Conoce a Nuestro Equipo</value>
+  </data>
+  <data name="About_Team_Lead" xml:space="preserve">
+    <value>Descubre a las personas detrás de nuestro compromiso con la excelencia en el servicio personalizado.</value>
+  </data>
+  <data name="About_Company_Title" xml:space="preserve">
+    <value>Sobre Nuestra Empresa</value>
+  </data>
+  <data name="About_Company_P1" xml:space="preserve">
+    <value>Concierge Costa Rica es una empresa de servicios concierge que nace de la pasión y visión compartida de tres amigos con un fuerte compromiso por brindar experiencias únicas y soluciones personalizadas a nuestros clientes.</value>
+  </data>
+  <data name="CS_Airfare_Title" xml:space="preserve">
+    <value>Ayuda en tarifas aéreas</value>
+  </data>
+  <data name="CS_Airfare_Desc" xml:space="preserve">
+    <value>Te ayudamos a buscar y comparar las mejores tarifas aéreas según tus fechas y destino.</value>
+  </data>
+  <data name="CS_LuxuryGround_Title" xml:space="preserve">
+    <value>Transporte terrestre de lujo</value>
+  </data>
+  <data name="CS_LuxuryGround_Desc" xml:space="preserve">
+    <value>Contamos con vehículos de alta gama y choferes profesionales para tu traslado.</value>
+  </data>
+  <data name="CS_VIPFastTrack_Title" xml:space="preserve">
+    <value>VIP Fast Track</value>
+  </data>
+  <data name="CS_VIPFastTrack_Desc" xml:space="preserve">
+    <value>Evita filas y procesos lentos con nuestro servicio VIP en aeropuertos clave como San José, Guanacaste y Turcas y Caicos.</value>
+  </data>
+  <data name="CS_YachtCharter_Title" xml:space="preserve">
+    <value>Alquiler de yates privados</value>
+  </data>
+  <data name="CS_YachtCharter_Desc" xml:space="preserve">
+    <value>Disfrutá del océano con total privacidad en yates de lujo completamente equipados.</value>
+  </data>
+  <data name="CS_PrivateTours_Title" xml:space="preserve">
+    <value>Tours y actividades privados</value>
+  </data>
+  <data name="CS_PrivateTours_Desc" xml:space="preserve">
+    <value>Organizamos experiencias únicas, desde aventuras en la naturaleza hasta recorridos culturales exclusivos.</value>
+  </data>
+  <data name="CS_PrivateJetHeli_Title" xml:space="preserve">
+    <value>Jet privado y helicóptero</value>
+  </data>
+  <data name="CS_PrivateJetHeli_Desc" xml:space="preserve">
+    <value>Viaja con estilo y eficiencia por Costa Rica con nuestras aeronaves privadas.</value>
+  </data>
+  <data name="CS_PrivateChefs_Title" xml:space="preserve">
+    <value>Chefs privados</value>
+  </data>
+  <data name="CS_PrivateChefs_Desc" xml:space="preserve">
+    <value>Chefs gourmet disponibles en Costa Rica, Tulum y Turcas y Caicos para crear menús personalizados en tu villa.</value>
+  </data>
+  <data name="CS_RestaurantRes_Title" xml:space="preserve">
+    <value>Reservas de restaurantes</value>
+  </data>
+  <data name="CS_RestaurantRes_Desc" xml:space="preserve">
+    <value>Acceso prioritario y asistencia para reservar en los mejores restaurantes locales.</value>
+  </data>
+  <data name="CS_ShoppingProvision_Title" xml:space="preserve">
+    <value>Compras y abastecimiento</value>
+  </data>
+  <data name="CS_ShoppingProvision_Desc" xml:space="preserve">
+    <value>Al llegar, encontrá tu villa surtida con alimentos, bebidas y productos esenciales según tus preferencias.</value>
+  </data>
+  <data name="CS_VillaRental_Title" xml:space="preserve">
+    <value>Alquiler de villa</value>
+  </data>
+  <data name="CS_VillaRental_Desc" xml:space="preserve">
+    <value>Selección exclusiva de villas en Costa Rica, Riviera Maya y Turcas y Caicos para una estadía de lujo.</value>
+  </data>
+  <data name="CS_InHomeSpa_Title" xml:space="preserve">
+    <value>Terapia de spa en el hogar</value>
+  </data>
+  <data name="CS_InHomeSpa_Desc" xml:space="preserve">
+    <value>Terapias de spa y bienestar en tu alojamiento, con profesionales certificados.</value>
+  </data>
+  <data name="CS_Airfare_Alt" xml:space="preserve">
+    <value>Tarifas aéreas</value>
+  </data>
+  <data name="CS_LuxuryGround_Alt" xml:space="preserve">
+    <value>Transporte lujo</value>
+  </data>
+  <data name="CS_VIPFastTrack_Alt" xml:space="preserve">
+    <value>VIP Fast Track</value>
+  </data>
+  <data name="CS_YachtCharter_Alt" xml:space="preserve">
+    <value>Yates privados</value>
+  </data>
+  <data name="CS_PrivateTours_Alt" xml:space="preserve">
+    <value>Tours privados</value>
+  </data>
+  <data name="CS_PrivateJetHeli_Alt" xml:space="preserve">
+    <value>Jets y helicópteros</value>
+  </data>
+  <data name="CS_PrivateChefs_Alt" xml:space="preserve">
+    <value>Chefs privados</value>
+  </data>
+  <data name="CS_RestaurantRes_Alt" xml:space="preserve">
+    <value>Reservas de restaurantes</value>
+  </data>
+  <data name="CS_ShoppingProvision_Alt" xml:space="preserve">
+    <value>Compras comestibles</value>
+  </data>
+  <data name="CS_VillaRental_Alt" xml:space="preserve">
+    <value>Alquiler de villa</value>
+  </data>
+  <data name="CS_InHomeSpa_Alt" xml:space="preserve">
+    <value>Spa en el hogar</value>
+  </data>
+  <data name="Home_CTA_Title" xml:space="preserve">
+    <value>¿Listo para comenzar?</value>
+  </data>
+  <data name="Home_CTA_Lead" xml:space="preserve">
+    <value>Contáctanos para planear tu experiencia de lujo</value>
+  </data>
+  <data name="Home_CTA_Button" xml:space="preserve">
+    <value>Contáctenos</value>
+  </data>
+  <data name="Home_Intro_Title" xml:space="preserve">
+    <value>Tu experiencia personalizada en Costa Rica</value>
+  </data>
+  <data name="Home_Intro_Paragraph" xml:space="preserve">
+    <value>En {0} le ofrecemos un servicio élite para ayudarle a hacer sus reservaciones para restaurantes, comprar entradas para eventos, preparar las vacaciones soñadas, concertar lo necesario para sus actividades empresariales en el mundo entero, localizar artículos difíciles de encontrar, así como comprar y entregar regalos especiales. El costo de los bienes o servicios se factura a su tarjeta Platinum MasterCard.</value>
+  </data>
+  <data name="Home_Services_Heading" xml:space="preserve">
+    <value>Nuestros Servicios</value>
+  </data>
+  <data name="Home_Service_General_Title" xml:space="preserve">
+    <value>Asistencia general</value>
+  </data>
+  <data name="Home_Service_General_Desc" xml:space="preserve">
+    <value>Alquiler de automóviles y limusinas, tiendas especializadas, investigación de productos y más.</value>
+  </data>
+  <data name="Home_Service_General_Alt" xml:space="preserve">
+    <value>Asistencia general</value>
+  </data>
+  <data name="Home_Service_Cultural_Title" xml:space="preserve">
+    <value>Información cultural</value>
+  </data>
+  <data name="Home_Service_Cultural_Desc" xml:space="preserve">
+    <value>Eventos, atracciones locales y extranjeras, normas de protocolo y etiqueta.</value>
+  </data>
+  <data name="Home_Service_Cultural_Alt" xml:space="preserve">
+    <value>Información cultural</value>
+  </data>
+  <data name="Home_Service_Restaurants_Title" xml:space="preserve">
+    <value>Recomendaciones de restaurantes</value>
+  </data>
+  <data name="Home_Service_Restaurants_Desc" xml:space="preserve">
+    <value>Reservas en restaurantes de lujo, información de menú, código de vestimenta y más.</value>
+  </data>
+  <data name="Home_Service_Restaurants_Alt" xml:space="preserve">
+    <value>Restaurantes</value>
+  </data>
+  <data name="Home_Service_Entertainment_Title" xml:space="preserve">
+    <value>Entretenimiento</value>
+  </data>
+  <data name="Home_Service_Entertainment_Desc" xml:space="preserve">
+    <value>Acceso a conciertos, teatro, ópera, museos y eventos deportivos.</value>
+  </data>
+  <data name="Home_Service_Entertainment_Alt" xml:space="preserve">
+    <value>Entretenimiento</value>
+  </data>
+  <data name="Home_Service_Business_Title" xml:space="preserve">
+    <value>Servicios empresariales</value>
+  </data>
+  <data name="Home_Service_Business_Desc" xml:space="preserve">
+    <value>Traductores, intérpretes, alquiler de tecnología e información de negocios al viajar.</value>
+  </data>
+  <data name="Home_Service_Business_Alt" xml:space="preserve">
+    <value>Empresarial</value>
+  </data>
+  <data name="Home_Service_Golf_Title" xml:space="preserve">
+    <value>Recomendaciones de golf</value>
+  </data>
+  <data name="Home_Service_Golf_Desc" xml:space="preserve">
+    <value>Reservas y sugerencias en campos públicos y privados de ciudades principales.</value>
+  </data>
+  <data name="Home_Service_Golf_Alt" xml:space="preserve">
+    <value>Golf</value>
+  </data>
+  <data name="Home_Service_Recreation_Title" xml:space="preserve">
+    <value>Actividades recreativas</value>
+  </data>
+  <data name="Home_Service_Recreation_Desc" xml:space="preserve">
+    <value>Paseos, deportes, visitas turísticas, referidos para gimnasios y más.</value>
+  </data>
+  <data name="Home_Service_Recreation_Alt" xml:space="preserve">
+    <value>Recreativas</value>
+  </data>
+  <data name="Home_Service_Gifting_Title" xml:space="preserve">
+    <value>Coordinación de regalos</value>
+  </data>
+  <data name="Home_Service_Gifting_Desc" xml:space="preserve">
+    <value>Flores, canastas, globos, regalos personalizados nacionales e internacionales.</value>
+  </data>
+  <data name="Home_Service_Gifting_Alt" xml:space="preserve">
+    <value>Regalos</value>
+  </data>
+  <data name="Home_Service_UniqueItems_Title" xml:space="preserve">
+    <value>Artículos únicos</value>
+  </data>
+  <data name="Home_Service_UniqueItems_Desc" xml:space="preserve">
+    <value>Búsqueda de artículos difíciles de encontrar como arte, libros raros u objetos únicos.</value>
+  </data>
+  <data name="Home_Service_UniqueItems_Alt" xml:space="preserve">
+    <value>Artículos únicos</value>
+  </data>
+  <data name="Gallery_Title" xml:space="preserve">
+    <value>Galería</value>
+  </data>
+  <data name="Gallery_Image1_Alt" xml:space="preserve">
+    <value>Imagen 1</value>
+  </data>
+  <data name="Gallery_Image2_Alt" xml:space="preserve">
+    <value>Imagen 2</value>
+  </data>
+  <data name="Gallery_Image3_Alt" xml:space="preserve">
+    <value>Imagen 3</value>
+  </data>
+  <data name="Carousel_Next" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="Carousel_Previous" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="About_Company_P2" xml:space="preserve">
+    <value>Con años de experiencia en el mundo de la hospitalidad, el servicio al cliente, gestión y logística empresarial, decidimos unir nuestras fuerzas para crear un negocio basado en la confianza, la dedicación y la atención al detalle.</value>
+  </data>
+  <data name="About_Company_P3" xml:space="preserve">
+    <value>Nuestra empresa es más que un negocio; es una extensión de nuestra amistad y compromiso por ofrecer un servicio excepcional que simplifique la vida de quienes confían en nosotros.</value>
+  </data>
+  <data name="About_Company_P4" xml:space="preserve">
+    <value>Nos especializamos en ofrecer una amplia gama de servicios no solo en Costa Rica, sino también en otros destinos clave: transporte privado, chefs en casa, reservas y eventos especiales, así como la gestión de tareas cotidianas que hacen la vida más fácil y placentera.</value>
+  </data>
+  <data name="About_Role_CEO" xml:space="preserve">
+    <value>Director General</value>
+  </data>
+  <data name="About_Role_ExperienceManager" xml:space="preserve">
+    <value>Gestora de Experiencias</value>
+  </data>
+  <data name="About_Role_LogisticsSpecialist" xml:space="preserve">
+    <value>Especialista en Logística</value>
+  </data>
+  <data name="About_Values_Title" xml:space="preserve">
+    <value>Nuestros Valores</value>
+  </data>
+  <data name="About_Values_ServiceExcellence" xml:space="preserve">
+    <value>Excelencia en el servicio</value>
+  </data>
+  <data name="About_Values_Privacy" xml:space="preserve">
+    <value>Confidencialidad absoluta</value>
+  </data>
+  <data name="About_Values_DetailPassion" xml:space="preserve">
+    <value>Pasión por los detalles</value>
+  </data>
+  <data name="About_Values_Innovation" xml:space="preserve">
+    <value>Innovación constante</value>
+  </data>
+  <data name="About_Values_EmpathyCommitment" xml:space="preserve">
+    <value>Empatía y compromiso</value>
+  </data>
+  <data name="About_Testimonials_Title" xml:space="preserve">
+    <value>Testimonios de Clientes</value>
+  </data>
+  <data name="About_Testimonial_1_Text" xml:space="preserve">
+    <value>“La mejor experiencia de mi vida. Concierge Costa Rica se encargó de todo, desde la llegada al aeropuerto hasta una cena romántica en la playa.”</value>
+  </data>
+  <data name="About_Testimonial_1_Author" xml:space="preserve">
+    <value>Laura G., México</value>
+  </data>
+  <data name="About_Testimonial_2_Text" xml:space="preserve">
+    <value>“Profesionalismo, puntualidad y un trato exquisito. Recomendadísimo para quienes buscan lo mejor en sus vacaciones.”</value>
+  </data>
+  <data name="About_Testimonial_2_Author" xml:space="preserve">
+    <value>Marco R., Italia</value>
+  </data>
+  <data name="About_Testimonial_3_Text" xml:space="preserve">
+    <value>“Me ayudaron a conseguir entradas VIP para un evento exclusivo en Tulum. Todo salió perfecto.”</value>
+  </data>
+  <data name="About_Testimonial_3_Author" xml:space="preserve">
+    <value>Ana P., Costa Rica</value>
+  </data>
+  <data name="About_CTA_Title" xml:space="preserve">
+    <value>¿Listo para vivir una experiencia inolvidable?</value>
+  </data>
+  <data name="FAQ_Featured_WhatIs_Title" xml:space="preserve">
+    <value>¿Qué es Concierge?</value>
+  </data>
+  <data name="FAQ_Featured_WhatIs_Desc" xml:space="preserve">
+    <value>Servicio personalizado para gestionar tus necesidades diarias y especiales.</value>
+  </data>
+  <data name="FAQ_Featured_HowRegister_Title" xml:space="preserve">
+    <value>¿Cómo me registro?</value>
+  </data>
+  <data name="FAQ_Featured_HowRegister_Desc" xml:space="preserve">
+    <value>Solo necesitas tu correo electrónico y contraseña para empezar.</value>
+  </data>
+  <data name="FAQ_Featured_PaymentMethods_Title" xml:space="preserve">
+    <value>¿Qué métodos de pago?</value>
+  </data>
+  <data name="FAQ_Featured_PaymentMethods_Desc" xml:space="preserve">
+    <value>Aceptamos tarjetas y transferencias bancarias de forma segura.</value>
+  </data>
+  <data name="FAQ_Section_Bookings" xml:space="preserve">
+    <value>Reservas</value>
+  </data>
+  <data name="FAQ_Section_Payments" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="FAQ_General_Q1_Title" xml:space="preserve">
+    <value>¿Qué es el servicio de Concierge?</value>
+  </data>
+  <data name="FAQ_General_Q1_Body" xml:space="preserve">
+    <value>El servicio de Concierge ofrece asistencia personalizada: reservas, gestiones y recomendaciones a la medida de tus necesidades.</value>
+  </data>
+  <data name="FAQ_General_Q2_Title" xml:space="preserve">
+    <value>¿Cómo me registro en la plataforma?</value>
+  </data>
+  <data name="FAQ_General_Q2_Body" xml:space="preserve">
+    <value>Haz clic en "Registrarse" en el menú superior, completa el formulario con tus datos y confirma tu cuenta desde el correo que te enviaremos.</value>
+  </data>
+  <data name="FAQ_Bookings_Q1_Title" xml:space="preserve">
+    <value>¿Puedo modificar o cancelar mi reserva?</value>
+  </data>
+  <data name="FAQ_Bookings_Q1_Body" xml:space="preserve">
+    <value>Sí, desde tu panel de usuario encontrarás las opciones "Modificar" y "Cancelar" junto a cada una de tus reservas confirmadas.</value>
+  </data>
+  <data name="FAQ_Bookings_Q2_Title" xml:space="preserve">
+    <value>¿Cómo recibo la confirmación de mi reserva?</value>
+  </data>
+  <data name="FAQ_Bookings_Q2_Body" xml:space="preserve">
+    <value>Al confirmar, te enviaremos un correo electrónico con todos los detalles.</value>
+  </data>
+  <data name="FAQ_Payments_Q1_Title" xml:space="preserve">
+    <value>¿Qué métodos de pago aceptan?</value>
+  </data>
+  <data name="FAQ_Payments_Q1_Body" xml:space="preserve">
+    <value>Aceptamos tarjetas de crédito, débito y transferencias bancarias. Todos los pagos se procesan de forma segura.</value>
+  </data>
+  <data name="FAQ_Payments_Q2_Title" xml:space="preserve">
+    <value>¿Puedo obtener factura o recibo?</value>
+  </data>
+  <data name="FAQ_Payments_Q2_Body" xml:space="preserve">
+    <value>Sí, al finalizar tu pago se enviará la factura al correo registrado.</value>
+  </data>
+  <data name="FAQ_Help_Title" xml:space="preserve">
+    <value>¿Aún tienes dudas?</value>
+  </data>
+  <data name="FAQ_Help_Lead" xml:space="preserve">
+    <value>Nuestro equipo de Concierge está listo para ayudarte con cualquier consulta personalizada.</value>
+  </data>
+  <data name="Contact_Form_Title" xml:space="preserve">
+    <value>Formulario de Contacto</value>
+  </data>
+  <data name="Contact_FindUs_Title" xml:space="preserve">
+    <value>Encuéntranos aquí</value>
+  </data>
+  <data name="Contact_Location_Title" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="Contact_Placeholder_Message" xml:space="preserve">
+    <value>Contanos cómo podemos ayudarte...</value>
+  </data>
+  <data name="Services_Intro_Title" xml:space="preserve">
+    <value>Nuestros Servicios Concierge</value>
+  </data>
+  <data name="Services_Intro_Lead" xml:space="preserve">
+    <value>A continuación, te presentamos todos nuestros servicios de concierge, organizados por país para ofrecerte una experiencia personalizada según tu destino.</value>
+  </data>
+  <data name="Services_Helicopter_Title" xml:space="preserve">
+    <value>Helicóptero</value>
+  </data>
+  <data name="Services_Helicopter_Desc" xml:space="preserve">
+    <value>Llega a tu destino con estilo y rapidez. Perfecto para evitar tráfico o disfrutar vistas panorámicas.</value>
+  </data>
+  <data name="Services_SailingCatamaran_Title" xml:space="preserve">
+    <value>Catamarán de Vela</value>
+  </data>
+  <data name="Services_SailingCatamaran_Desc" xml:space="preserve">
+    <value>Navega con comodidad y seguridad en excursiones diurnas o al atardecer.</value>
+  </data>
+  <data name="Services_FloralDecoration_Desc" xml:space="preserve">
+    <value>Adornamos tu hogar o evento con arreglos florales únicos y frescos.</value>
+  </data>
+  <data name="Services_FloralDecoration_Title" xml:space="preserve">
+    <value>Decoración y Arreglos Florales</value>
+  </data>
+  <data name="Services_SpanishTeacher_Title" xml:space="preserve">
+    <value>Profesor de Español</value>
+  </data>
+  <data name="Services_SpanishTeacher_Desc" xml:space="preserve">
+    <value>Clases personalizadas para todos los niveles desde la comodidad de tu alojamiento.</value>
+  </data>
+  <data name="Services_ReceptionWelcome_Title" xml:space="preserve">
+    <value>Recepción y Bienvenida</value>
+  </data>
+  <data name="Services_ReceptionWelcome_Desc" xml:space="preserve">
+    <value>Recibimos a tus huéspedes, les mostramos la propiedad y aclaramos dudas para un check-in sin problemas.</value>
+  </data>
+  <data name="Services_PropertyInspection_Title" xml:space="preserve">
+    <value>Inspección de Propiedad</value>
+  </data>
+  <data name="Services_PropertyInspection_Desc" xml:space="preserve">
+    <value>Verificamos que todo esté en orden antes de tu llegada a la propiedad de alquiler.</value>
+  </data>
+  <data name="Services_ProfessionalPhotography_Title" xml:space="preserve">
+    <value>Fotografía Profesional</value>
+  </data>
+  <data name="Services_ProfessionalPhotography_Desc" xml:space="preserve">
+    <value>Capturá tus mejores momentos con imágenes de alta calidad a cargo de fotógrafos expertos.</value>
+  </data>
+  <data name="Services_BartenderMixologist_Title" xml:space="preserve">
+    <value>Servicios de Bartender y Mixólogo</value>
+  </data>
+  <data name="Services_BartenderMixologist_Desc" xml:space="preserve">
+    <value>Llevá tus eventos al siguiente nivel con cócteles personalizados preparados por expertos.</value>
+  </data>
+  <data name="Services_Butler_Title" xml:space="preserve">
+    <value>Mayordomo</value>
+  </data>
+  <data name="Services_Butler_Desc" xml:space="preserve">
+    <value>Experimentá lo máximo en servicio personalizado con nuestros servicios de mayordomo profesional. Desde la gestión de tu agenda diaria hasta la atención de tus necesidades, garantizamos una estancia impecable.</value>
+  </data>
+  <data name="Locations_Intro_Title" xml:space="preserve">
+    <value>¿Dónde están disponibles los servicios?</value>
+  </data>
+  <data name="Locations_Intro_Lead" xml:space="preserve">
+    <value>Conozca los detalles de cada uno de nuestros destinos destacados.</value>
+  </data>
+  <data name="Locations_CR_Title" xml:space="preserve">
+    <value>Costa Rica</value>
+  </data>
+  <data name="Locations_CR_Summary" xml:space="preserve">
+    <value>Naturaleza exuberante y parques nacionales.</value>
+  </data>
+  <data name="Locations_CR_Content" xml:space="preserve">
+    <value>Con sus bosques y playas, Costa Rica alberga abundantes bellezas naturales. El país cuenta con más de 25 Parques Nacionales y más de 20 zonas protegidas, lo que lo convierte en el lugar perfecto para los amantes de la naturaleza y los aventureros al aire libre.</value>
+  </data>
+  <data name="Locations_RivieraMaya_Title" xml:space="preserve">
+    <value>Riviera Maya</value>
+  </data>
+  <data name="Locations_RivieraMaya_Summary" xml:space="preserve">
+    <value>Playas paradisíacas y cultura maya.</value>
+  </data>
+  <data name="Locations_RivieraMaya_Content" xml:space="preserve">
+    <value>Sus hermosas playas, el rico legado del Mundo Maya, su exótica naturaleza, sus hoteles y resorts de clase mundial, la mejor gastronomía y una vida nocturna súper divertida hacen del Caribe Mexicano el lugar perfecto para tus próximas vacaciones.</value>
+  </data>
+  <data name="Locations_Bahamas_Title" xml:space="preserve">
+    <value>Bahamas</value>
+  </data>
+  <data name="Locations_Bahamas_Summary" xml:space="preserve">
+    <value>Playas de ensueño y aguas cristalinas.</value>
+  </data>
+  <data name="Locations_Bahamas_Content" xml:space="preserve">
+    <value>Las Bahamas son un paraíso tropical con playas de ensueño, aguas cristalinas y un clima cálido durante todo el año. Es el lugar perfecto para relajarse, disfrutar de actividades acuáticas y explorar la cultura local.</value>
+  </data>
+  <data name="Locations_TurksCaicos_Title" xml:space="preserve">
+    <value>Turks and Caicos</value>
+  </data>
+  <data name="Locations_TurksCaicos_Summary" xml:space="preserve">
+    <value>Aguas turquesas y vida marina.</value>
+  </data>
+  <data name="Locations_TurksCaicos_Content" xml:space="preserve">
+    <value>En este territorio británico de ultramar, que celebridades pusieron en el mapa como su lugar de vacaciones, las aguas turquesas, la vida submarina y las conchas son las protagonistas. También esperan un delfín que es un tesoro nacional y una de las mejores playas del mundo.</value>
+  </data>
+  <data name="Locations_Miami_Title" xml:space="preserve">
+    <value>Miami, USA</value>
+  </data>
+  <data name="Locations_Miami_Summary" xml:space="preserve">
+    <value>Vibrante, cosmopolita y llena de energía.</value>
+  </data>
+  <data name="Locations_Miami_Content" xml:space="preserve">
+    <value>Miami es una ciudad vibrante donde la cultura latina se mezcla con la modernidad estadounidense. Ofrece playas icónicas como South Beach, arte urbano en Wynwood, vida nocturna de primer nivel y una escena gastronómica en constante evolución. Ideal para quienes buscan lujo, entretenimiento y un ambiente cosmopolita junto al mar.</value>
+  </data>
+  <data name="Services_MX_Title" xml:space="preserve">
+    <value>México (Playa del Carmen / Tulum)</value>
+  </data>
+  <data name="Services_USA_Title" xml:space="preserve">
+    <value>Estados Unidos (Miami)</value>
+  </data>
+  <data name="Reservations_Title" xml:space="preserve">
+    <value>Mis Reservas</value>
+  </data>
+  <data name="Reservations_Hero_Title" xml:space="preserve">
+    <value>Gestión de Reservas</value>
+  </data>
+  <data name="Reservations_Hero_Lead" xml:space="preserve">
+    <value>Consulta tus reservas actuales o realiza una nueva.</value>
+  </data>
+  <data name="Reservations_View_Title" xml:space="preserve">
+    <value>Ver mis Reservas</value>
+  </data>
+  <data name="Reservations_View_Desc" xml:space="preserve">
+    <value>Consulta el historial de tus reservas realizadas, con opción para modificar o cancelar si es necesario.</value>
+  </data>
+  <data name="Reservations_View_Button" xml:space="preserve">
+    <value>Ver Reservas</value>
+  </data>
+  <data name="Reservations_New_Title" xml:space="preserve">
+    <value>Hacer nueva Reserva</value>
+  </data>
+  <data name="Reservations_New_Desc" xml:space="preserve">
+    <value>Reservá un nuevo servicio a tu medida según destino, tipo de atención y horario disponible.</value>
+  </data>
+  <data name="Reservations_New_Button" xml:space="preserve">
+    <value>Reservar Ahora</value>
+  </data>
+  <data name="Btn_SignOut" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="Services_VillaRental_Desc" xml:space="preserve">
+    <value>Villas de lujo curadas para tu estadía.</value>
+  </data>
+  <data name="Services_VillaRental_Desc_MX" xml:space="preserve">
+    <value>Propiedades de lujo en la Riviera Maya.</value>
+  </data>
+  <data name="Services_VillaRental_Desc_BS" xml:space="preserve">
+    <value>Villas frente al mar.</value>
+  </data>
+  <data name="Services_PrivateTours_Desc_MX" xml:space="preserve">
+    <value>Experiencias exclusivas y personalizadas.</value>
+  </data>
+  <data name="Services_PrivateTours_Desc_US" xml:space="preserve">
+    <value>Experiencias privadas en Miami.</value>
+  </data>
+  <data name="Services_CardSelect_Hint" xml:space="preserve">
+    <value>Marcá las tarjetas para seleccionar los servicios.</value>
+  </data>
+  <data name="Services_FilterCountry_Hint" xml:space="preserve">
+    <value>Elegí un país para ver solo los servicios disponibles en ese destino.</value>
+  </data>
+  <data name="Services_SelectCountry_Placeholder" xml:space="preserve">
+    <value>Seleccioná un país</value>
+  </data>
+  <data name="Reservations_SendInternalNotification" xml:space="preserve">
+    <value>Enviar notificación interna</value>
+  </data>
+  <data name="Reservations_Confirm_Button" xml:space="preserve">
+    <value>Confirmar Reserva</value>
+  </data>
+  <data name="Btn_BackToReservations" xml:space="preserve">
+    <value>Volver a Reservas</value>
+  </data>
+  <data name="Btn_SelectAll" xml:space="preserve">
+    <value>Seleccionar todo</value>
+  </data>
+  <data name="Label_AvailableServices" xml:space="preserve">
+    <value>Servicios disponibles</value>
+  </data>
+  <data name="Reservations_ConfirmAndView_Button" xml:space="preserve">
+    <value>Confirmar y Ver Mis Reservas</value>
+  </data>
+  <data name="Reservations_CancelThis_Button" xml:space="preserve">
+    <value>Cancelar esta Reserva</value>
+  </data>
+  <data name="Reservations_Confirmation_Title" xml:space="preserve">
+    <value>Confirmación de Reserva</value>
+  </data>
+  <data name="Reservations_NewPage_Title" xml:space="preserve">
+    <value>Nueva Reserva</value>
+  </data>
+  <data name="Reservations_ConfirmPage_Title" xml:space="preserve">
+    <value>Confirmar Reserva</value>
+  </data>
+  <data name="Reservations_MyPage_Title" xml:space="preserve">
+    <value>Mis Reservas</value>
+  </data>
+  <data name="Table_Notification" xml:space="preserve">
+    <value>Notificación</value>
+  </data>
+  <data name="Table_Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Confirm_CancelBooking" xml:space="preserve">
+    <value>¿Estás seguro de que deseas cancelar esta reserva?</value>
+  </data>
+  <data name="Btn_SignIn" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="Register_Lead" xml:space="preserve">
+    <value>Completá el formulario para crear tu cuenta.</value>
+  </data>
+  <data name="Btn_CreateUser" xml:space="preserve">
+    <value>Crear Usuario</value>
+  </data>
+  <data name="Btn_SaveChanges" xml:space="preserve">
+    <value>Guardar Cambios</value>
+  </data>
+  <data name="Services_SelectDesired_Hint" xml:space="preserve">
+    <value>Seleccione los servicios deseados (se conservarán marcados los existentes).</value>
+  </data>
+  <data name="Reservations_Edit_Title" xml:space="preserve">
+    <value>Editar Reserva</value>
+  </data>
+  <data name="Services_LuxuryTransport_Desc" xml:space="preserve">
+    <value>Vehículos de alta gama y choferes profesionales.</value>
+  </data>
+  <data name="Reservations_EditPage_Title" xml:space="preserve">
+    <value>Editar Reserva</value>
+  </data>
+</root>
